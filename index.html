@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日本紀行 — Bitácora Tradicional de Viaje a Japón</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Tipografía Japonesa Clásica con carácter (Shippori Mincho, Noto Serif JP) + Lectura limpia (Plus Jakarta Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Shippori+Mincho:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        washi: '#F4EFE6',
+                        washiDark: '#E6DEC8',
+                        sumi: '#141414',
+                        sumiSoft: '#2B2B2B',
+                        vermilion: '#B81D24',
+                        vermilionDeep: '#8A1117',
+                        indigoOni: '#1C5D8C',
+                        ochreGold: '#C68B2C',
+                        stoneGray: '#5C5852'
+                    },
+                    fontFamily: {
+                        serifJp: ['"Shippori Mincho"', '"Noto Serif JP"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Fondo de papel japonés grueso (Washi) con grano sutil y patrón tradicional de olas Seigaiha */
+        body {
+            background-color: #F4EFE6;
+            background-image: 
+                radial-gradient(rgba(20, 20, 20, 0.045) 1px, transparent 0),
+                radial-gradient(rgba(184, 29, 36, 0.03) 1px, transparent 0);
+            background-size: 22px 22px;
+            background-position: 0 0, 11px 11px;
+            color: #141414;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Patrón tradicional de olas japonesas (Seigaiha) para la cabecera */
+        .seigaiha-bg {
+            background-color: #EFE8DA;
+            background-image: 
+                radial-gradient(circle at 100% 150%, #EFE8DA 24%, rgba(20,20,20,0.06) 25%, rgba(20,20,20,0.06) 28%, #EFE8DA 29%, #EFE8DA 36%, rgba(20,20,20,0.06) 36%, rgba(20,20,20,0.06) 40%, transparent 40%, transparent),
+                radial-gradient(circle at 0    150%, #EFE8DA 24%, rgba(20,20,20,0.06) 25%, rgba(20,20,20,0.06) 28%, #EFE8DA 29%, #EFE8DA 36%, rgba(20,20,20,0.06) 36%, rgba(20,20,20,0.06) 40%, transparent 40%, transparent),
+                radial-gradient(circle at 50%  100%, rgba(20,20,20,0.06) 10%, #EFE8DA 11%, #EFE8DA 23%, rgba(20,20,20,0.06) 24%, rgba(20,20,20,0.06) 30%, #EFE8DA 31%, #EFE8DA 43%, rgba(20,20,20,0.06) 44%, rgba(20,20,20,0.06) 50%, #EFE8DA 51%, #EFE8DA 63%, rgba(20,20,20,0.06) 64%, rgba(20,20,20,0.06) 71%, transparent 71%, transparent),
+                radial-gradient(circle at 100% 50%, rgba(20,20,20,0.06) 5%, #EFE8DA 6%, #EFE8DA 15%, rgba(20,20,20,0.06) 16%, rgba(20,20,20,0.06) 20%, #EFE8DA 21%, #EFE8DA 30%, rgba(20,20,20,0.06) 31%, rgba(20,20,20,0.06) 35%, #EFE8DA 36%, #EFE8DA 45%, rgba(20,20,20,0.06) 46%, rgba(20,20,20,0.06) 49%, transparent 50%, transparent),
+                radial-gradient(circle at 0    50%, rgba(20,20,20,0.06) 5%, #EFE8DA 6%, #EFE8DA 15%, rgba(20,20,20,0.06) 16%, rgba(20,20,20,0.06) 20%, #EFE8DA 21%, #EFE8DA 30%, rgba(20,20,20,0.06) 31%, rgba(20,20,20,0.06) 35%, #EFE8DA 36%, #EFE8DA 45%, rgba(20,20,20,0.06) 46%, rgba(20,20,20,0.06) 49%, transparent 50%, transparent);
+            background-size: 64px 32px;
+        }
+
+        /* Ocultar scrollbar en filtros horizontales */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Marco estilo grabado en madera Ukiyo-e con sombra dura de tinta */
+        .ukiyo-frame {
+            border: 2.5px solid #141414;
+            box-shadow: 5px 5px 0px #141414;
+        }
+
+        .ukiyo-frame-sm {
+            border: 2px solid #141414;
+            box-shadow: 3px 3px 0px #141414;
+        }
+
+        /* Escritura vertical tradicional japonesa (Tategaki) */
+        .vertical-jp {
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+        }
+
+        /* Sello rojo tradicional Hanko */
+        .hanko-seal {
+            border: 2.5px solid #B81D24;
+            color: #B81D24;
+            box-shadow: inset 0 0 0 1px rgba(184, 29, 36, 0.25);
+        }
+
+        @keyframes inkFade {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-ink {
+            animation: inkFade 0.4s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased pb-24 selection:bg-vermilion selection:text-washi">
+
+    <!-- ===================================================================== -->
+    <!-- CABECERA ARTÍSTICA ESTILO PERGAMINO / LÁMINA UKIYO-E & SUMI-E         -->
+    <!-- ===================================================================== -->
+    <header class="relative seigaiha-bg border-b-4 border-sumi overflow-hidden">
+        <!-- Trazo superior de tinta negra -->
+        <div class="h-2 bg-sumi w-full"></div>
+
+        <!-- Pinceladas decorativas de tinta Sumi-e en las esquinas -->
+        <svg class="absolute top-0 left-0 w-64 h-64 text-sumi opacity-10 pointer-events-none" viewBox="0 0 200 200" fill="currentColor">
+            <path d="M0,0 L160,0 C120,25 85,30 60,70 C35,110 25,140 0,180 Z"/>
+        </svg>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 pt-6 pb-9 relative z-10">
+            <!-- Barra superior con Sello de Artista Ukiyo-e y Fechas -->
+            <div class="flex items-center justify-between gap-3 mb-6 pb-3 border-b-2 border-sumi/20">
+                <div class="flex items-center gap-2.5">
+                    <span class="inline-block w-3 h-3 bg-vermilion rotate-45 border border-sumi"></span>
+                    <span class="font-serifJp font-bold text-xs sm:text-sm tracking-[0.2em] uppercase text-sumi">
+                        CUADERNO DE RUTA • JAPÓN
+                    </span>
+                </div>
+                <span id="header-dates" class="font-serifJp font-bold text-xs sm:text-sm px-3 py-1 bg-washi border-2 border-sumi text-sumi">
+                    10 OCT — 24 OCT
+                </span>
+            </div>
+
+            <!-- Composición Principal: Sello Vertical + Títulos + Ilustración Máscara Oni / Sumi-e -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                
+                <!-- Columna Izquierda: Sello de artista tradicional + Título -->
+                <div class="md:col-span-7 flex items-start gap-4 sm:gap-5">
+                    <!-- Sello Vertical Tradicional Japonés (Tategaki) estilo Irezumi / Ukiyo-e -->
+                    <div class="shrink-0 bg-washi border-2 border-sumi p-1.5 shadow-[3px_3px_0px_#141414] select-none flex flex-col items-center">
+                        <!-- Estrella/Emblema rojo superior -->
+                        <svg class="w-5 h-5 text-vermilion mb-1" viewBox="0 0 24 24" fill="currentColor" stroke="#141414" stroke-width="1.5">
+                            <polygon points="12,2 15,9 22,9 16.5,14 18.5,21 12,17 5.5,21 7.5,14 2,9 9,9"/>
+                        </svg>
+                        <div class="border-t-2 border-sumi pt-1.5">
+                            <span class="vertical-jp font-serifJp font-black text-sumi text-base sm:text-lg tracking-widest leading-none">
+                                日本紀行
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Texto Principal -->
+                    <div class="space-y-3">
+                        <div class="inline-block px-2.5 py-0.5 bg-vermilion text-washi font-serifJp font-bold text-xs tracking-widest uppercase">
+                            BITÁCORA DE EXPEDICIÓN
+                        </div>
+
+                        <h1 id="trip-title" class="font-serifJp font-black text-3xl sm:text-5xl text-sumi tracking-tight leading-[1.1]">
+                            CRÓNICA DE <span class="text-vermilion">JAPÓN</span>
+                        </h1>
+
+                        <p id="trip-subtitle" class="text-sm sm:text-base text-sumiSoft leading-relaxed font-medium">
+                            De los santuarios milenarios cubiertos de niebla y tinta hasta las antiguas rutas samuráis y callejones tradicionales.
+                        </p>
+
+                        <!-- Resumen de Ruta en tarjetas enmarcadas -->
+                        <div class="pt-2 flex flex-wrap gap-2.5">
+                            <div class="bg-washi border-2 border-sumi px-3 py-1.5 shadow-[2px_2px_0px_#141414]">
+                                <span class="block text-[10px] font-bold uppercase tracking-wider text-stoneGray">RUTA</span>
+                                <span id="stat-cities" class="font-serifJp font-bold text-xs sm:text-sm text-sumi">TOKIO • KIOTO • OSAKA</span>
+                            </div>
+                            <div class="bg-washi border-2 border-sumi px-3 py-1.5 shadow-[2px_2px_0px_#141414]">
+                                <span class="block text-[10px] font-bold uppercase tracking-wider text-stoneGray">DURACIÓN</span>
+                                <span id="stat-days" class="font-serifJp font-bold text-xs sm:text-sm text-vermilion">03 JORNADAS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: ILUSTRACIÓN SVG TRADICIONAL (SOL CARMESÍ SUMI-E + MÁSCARA ONI ÍNDIGO + OLAS IREZUMI) -->
+                <div class="md:col-span-5 flex justify-center">
+                    <div class="relative w-64 h-64 sm:w-72 sm:h-72 flex items-center justify-center">
+                        <svg viewBox="0 0 340 340" class="w-full h-full drop-shadow-[0_6px_12px_rgba(20,20,20,0.22)]" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <!-- Sol Rojo Carmesí estilo pincelada Sumi-e -->
+                                <radialGradient id="sumiSun" cx="48%" cy="48%" r="52%">
+                                    <stop offset="0%" stop-color="#C81D25" stop-opacity="0.95"/>
+                                    <stop offset="72%" stop-color="#B81D24" stop-opacity="0.88"/>
+                                    <stop offset="92%" stop-color="#B81D24" stop-opacity="0.35"/>
+                                    <stop offset="100%" stop-color="#B81D24" stop-opacity="0"/>
+                                </radialGradient>
+
+                                <!-- Azul Índigo Tradicional con sombreado Ukiyo-e para la Máscara Oni -->
+                                <linearGradient id="indigoMask" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#3B82B6"/>
+                                    <stop offset="45%" stop-color="#1C5D8C"/>
+                                    <stop offset="100%" stop-color="#0E3352"/>
+                                </linearGradient>
+
+                                <!-- Ocre / Dorado antiguo para los cuernos -->
+                                <linearGradient id="ochreHorn" x1="0%" y1="100%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#8C5819"/>
+                                    <stop offset="55%" stop-color="#C68B2C"/>
+                                    <stop offset="100%" stop-color="#E8C272"/>
+                                </linearGradient>
+
+                                <!-- Llamas rojo bermellón -->
+                                <linearGradient id="vermilionFlame" x1="0%" y1="100%" x2="0%" y2="0%">
+                                    <stop offset="0%" stop-color="#9E141B"/>
+                                    <stop offset="60%" stop-color="#D92B2B"/>
+                                    <stop offset="100%" stop-color="#E66C2C"/>
+                                </linearGradient>
+                            </defs>
+
+                            <!-- 1. Sol Rojo Carmesí de fondo con textura de pincel -->
+                            <circle cx="170" cy="155" r="126" fill="url(#sumiSun)"/>
+                            <!-- Trazos horizontales de pincel seco sobre el sol -->
+                            <path d="M68 125 Q170 118 272 128" stroke="#EFE8DA" stroke-width="2.5" opacity="0.35" fill="none"/>
+                            <path d="M55 162 Q170 155 285 165" stroke="#EFE8DA" stroke-width="2" opacity="0.28" fill="none"/>
+
+                            <!-- 2. Olas y Nubes de Tinta Negra estilo Irezumi / Ukiyo-e -->
+                            <path d="M55 245 C40 205, 55 165, 82 150 C68 175, 75 205, 95 225 Z" fill="#141414"/>
+                            <path d="M285 245 C300 205, 285 165, 258 150 C272 175, 265 205, 245 225 Z" fill="#141414"/>
+                            
+                            <!-- Olas estilizadas en la base con crestas blancas -->
+                            <path d="M35 268 Q75 232 115 262 Q155 232 195 262 Q235 232 275 262 Q295 248 308 268 L295 298 Q170 315 45 298 Z" 
+                                  fill="#141414" stroke="#141414" stroke-width="2"/>
+                            <path d="M52 268 Q82 246 112 266 M135 266 Q165 246 195 266 M218 266 Q248 246 278 266" 
+                                  stroke="#F4EFE6" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+                            <!-- 3. Llamas Bermellón tradicionales envolviendo los lados -->
+                            <path d="M84 228 C58 195, 65 152, 92 132 C82 162, 90 188, 108 208 Z" fill="url(#vermilionFlame)" stroke="#141414" stroke-width="2"/>
+                            <path d="M256 228 C282 195, 275 152, 248 132 C258 162, 250 188, 232 208 Z" fill="url(#vermilionFlame)" stroke="#141414" stroke-width="2"/>
+
+                            <!-- 4. Cuernos Dorados / Ocres de la Máscara Oni -->
+                            <path d="M118 112 C98 78, 92 46, 108 20 C118 48, 128 78, 140 104 Z" fill="url(#ochreHorn)" stroke="#141414" stroke-width="3"/>
+                            <path d="M222 112 C242 78, 248 46, 232 20 C222 48, 212 78, 200 104 Z" fill="url(#ochreHorn)" stroke="#141414" stroke-width="3"/>
+                            <!-- Textura de estrías en los cuernos -->
+                            <path d="M104 68 L122 63 M101 48 L116 44 M236 68 L218 63 M239 48 L224 44" stroke="#141414" stroke-width="2.2" stroke-linecap="round"/>
+
+                            <!-- 5. Cabellera de Tinta Negra -->
+                            <path d="M96 122 C72 150, 68 195, 84 235 L104 212 L102 145 Z" fill="#141414"/>
+                            <path d="M244 122 C268 150, 272 195, 256 235 L236 212 L238 145 Z" fill="#141414"/>
+
+                            <!-- 6. Rostro Principal de la Máscara Oni / Hannya (Azul Índigo Profundo) -->
+                            <path d="M108 112 C132 94, 208 94, 232 112 L242 168 C238 212, 214 252, 170 266 C126 252, 102 212, 98 168 Z" 
+                                  fill="url(#indigoMask)" stroke="#141414" stroke-width="3.8" stroke-linejoin="round"/>
+
+                            <!-- Líneas de expresión y pómulos tallados en madera -->
+                            <path d="M106 175 C122 182, 128 198, 122 218" stroke="#0B2236" stroke-width="3" fill="none" stroke-linecap="round"/>
+                            <path d="M234 175 C218 182, 212 198, 218 218" stroke="#0B2236" stroke-width="3" fill="none" stroke-linecap="round"/>
+                            <path d="M148 112 Q170 122 192 112" stroke="#0B2236" stroke-width="2.5" fill="none"/>
+
+                            <!-- Entrecejo feroz -->
+                            <path d="M118 134 L160 154 L170 142 L180 154 L222 134 L212 122 L170 136 L128 122 Z" fill="#141414"/>
+
+                            <!-- 7. Ojos Amarillos Intensos con pupila oscura tradicional -->
+                            <polygon points="122,152 156,162 150,176 120,168" fill="#141414"/>
+                            <circle cx="139" cy="164" r="6.5" fill="#F2C94C"/>
+                            <circle cx="139" cy="164" r="2.3" fill="#B81D24"/>
+
+                            <polygon points="218,152 184,162 190,176 220,168" fill="#141414"/>
+                            <circle cx="201" cy="164" r="6.5" fill="#F2C94C"/>
+                            <circle cx="201" cy="164" r="2.3" fill="#B81D24"/>
+
+                            <!-- Nariz tradicional Oni -->
+                            <path d="M161 170 L170 158 L179 170 L185 192 L170 197 L155 192 Z" fill="#134266" stroke="#141414" stroke-width="2.5" stroke-linejoin="round"/>
+
+                            <!-- 8. Boca abierta con interior bermellón y colmillos dorados -->
+                            <path d="M124 214 Q170 196 216 214 L208 242 Q170 254 132 242 Z" fill="#7A0E14" stroke="#141414" stroke-width="3"/>
+                            <!-- Dientes superiores e inferiores -->
+                            <path d="M146 210 L151 221 L156 209 M164 208 L170 220 L176 208 M184 209 L189 221 L194 210" fill="#F4EFE6" stroke="#141414" stroke-width="1.2"/>
+                            <path d="M150 242 L155 231 L160 243 M165 243 L170 232 L175 243 M180 243 L185 231 L190 242" fill="#F4EFE6" stroke="#141414" stroke-width="1.2"/>
+                            <!-- Colmillos largos -->
+                            <path d="M131 214 L138 238 L146 212 Z" fill="url(#ochreHorn)" stroke="#141414" stroke-width="2"/>
+                            <path d="M209 214 L202 238 L194 212 Z" fill="url(#ochreHorn)" stroke="#141414" stroke-width="2"/>
+                            <path d="M134 241 L141 218 L148 243 Z" fill="url(#ochreHorn)" stroke="#141414" stroke-width="2"/>
+                            <path d="M206 241 L199 218 L192 243 Z" fill="url(#ochreHorn)" stroke="#141414" stroke-width="2"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===================================================================== -->
+    <!-- BARRA DE NAVEGACIÓN PEGAJOSA (FILTROS POR DÍA + GALERÍA + EQUIPAJE)   -->
+    <!-- ===================================================================== -->
+    <nav class="sticky top-0 z-30 bg-washi/95 backdrop-blur-sm border-b-2 border-sumi shadow-sm">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <!-- Filtros horizontales por día -->
+            <div id="day-filters" class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 sm:pb-0">
+                <!-- Botones generados dinámicamente -->
+            </div>
+
+            <!-- Botones de Vista y Equipaje -->
+            <div class="flex items-center gap-2 shrink-0">
+                <button id="btn-toggle-gallery" class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-3.5 py-2 bg-washi hover:bg-washiDark text-sumi border-2 border-sumi shadow-[2px_2px_0px_#141414] font-serifJp font-bold text-xs transition active:translate-y-0.5">
+                    <span>🖼️</span>
+                    <span id="btn-gallery-label">Solo Galería</span>
+                </button>
+
+                <button id="btn-open-checklist" class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-3.5 py-2 bg-sumi hover:bg-sumiSoft text-washi border-2 border-sumi shadow-[2px_2px_0px_#B81D24] font-serifJp font-bold text-xs transition active:translate-y-0.5">
+                    <span>🎒</span>
+                    <span>Equipaje & Notas</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===================================================================== -->
+    <!-- CONTENIDO PRINCIPAL                                                   -->
+    <!-- ===================================================================== -->
+    <main class="max-w-4xl mx-auto px-4 pt-8">
+        <!-- Encabezado de Sección -->
+        <div class="flex items-center justify-between mb-6 pb-2.5 border-b-2 border-sumi">
+            <div class="flex items-center gap-2.5">
+                <span class="w-2.5 h-2.5 bg-vermilion inline-block"></span>
+                <h2 id="view-title" class="font-serifJp font-extrabold text-lg sm:text-xl text-sumi tracking-tight">
+                    Itinerario Completo
+                </h2>
+            </div>
+            <span id="view-counter" class="text-xs font-bold px-2.5 py-1 bg-washiDark border border-sumi text-sumi">
+                0 actividades
+            </span>
+        </div>
+
+        <!-- VISTA 1: TARJETAS DE ITINERARIO POR DÍA -->
+        <div id="itinerary-container" class="space-y-10">
+            <!-- Renderizado dinámico por JS -->
+        </div>
+
+        <!-- VISTA 2: SOLO GALERÍA & SUBIDA RÁPIDA DE FOTOS -->
+        <section id="gallery-container" class="hidden animate-ink">
+            <div class="bg-washi p-5 sm:p-6 mb-7 ukiyo-frame flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-vermilion">ARCHIVO VISUAL DEL VIAJE</span>
+                    <h3 class="font-serifJp font-extrabold text-xl text-sumi mt-0.5">Álbum de Fotografías</h3>
+                    <p class="text-xs sm:text-sm text-sumiSoft mt-1">
+                        Toca cualquier imagen para verla en pantalla completa o carga fotos desde tu dispositivo para previsualizarlas.
+                    </p>
+                </div>
+
+                <label class="cursor-pointer inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-vermilion hover:bg-vermilionDeep text-washi border-2 border-sumi shadow-[3px_3px_0px_#141414] font-serifJp font-bold text-xs transition shrink-0">
+                    <span>+ Cargar fotos del teléfono</span>
+                    <input type="file" id="phone-photo-input" accept="image/*" multiple class="hidden">
+                </label>
+            </div>
+
+            <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <!-- Fotos renderizadas dinámicamente -->
+            </div>
+        </section>
+    </main>
+
+    <!-- ===================================================================== -->
+    <!-- LIGHTBOX A PANTALLA COMPLETA PARA AMPLIAR FOTOGRAFÍAS                 -->
+    <!-- ===================================================================== -->
+    <div id="lightbox-modal" class="fixed inset-0 z-50 hidden bg-sumi/90 backdrop-blur-xs flex items-center justify-center p-4" onclick="cerrarLightbox()">
+        <div class="relative max-w-3xl w-full bg-washi border-4 border-sumi p-3 sm:p-4 shadow-[8px_8px_0px_#B81D24] animate-ink" onclick="event.stopPropagation()">
+            <div class="flex items-center justify-between pb-2.5 mb-3 border-b-2 border-sumi">
+                <span class="font-serifJp font-bold text-xs tracking-widest uppercase text-vermilion">LÁMINA FOTOGRÁFICA</span>
+                <button onclick="cerrarLightbox()" class="px-3 py-1 bg-sumi text-washi font-serifJp font-bold text-xs hover:bg-vermilion transition">
+                    ✕ Cerrar
+                </button>
+            </div>
+            <div class="max-h-[72vh] overflow-hidden bg-sumi flex items-center justify-center border-2 border-sumi">
+                <img id="lightbox-img" src="" alt="Vista ampliada" class="max-h-[72vh] w-auto object-contain">
+            </div>
+            <p id="lightbox-caption" class="font-serifJp font-bold text-sm sm:text-base text-sumi mt-3 text-center"></p>
+        </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- MODAL: EQUIPAJE (CHECKLIST) & NOTAS / FRASES EN JAPONÉS               -->
+    <!-- ===================================================================== -->
+    <div id="checklist-modal" class="fixed inset-0 z-50 hidden bg-sumi/75 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4">
+        <div class="bg-washi w-full max-w-xl border-t-4 sm:border-4 border-sumi shadow-[8px_8px_0px_#141414] overflow-hidden max-h-[90vh] flex flex-col animate-ink">
+            <!-- Cabecera del Modal -->
+            <div class="px-5 py-4 bg-washiDark border-b-2 border-sumi flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <span class="hanko-seal px-2 py-0.5 font-serifJp font-black text-sm bg-washi">旅具</span>
+                    <h3 class="font-serifJp font-extrabold text-xl text-sumi">Equipaje & Frases Útiles</h3>
+                </div>
+                <button id="btn-close-checklist" class="px-2.5 py-1 bg-washi border-2 border-sumi font-bold text-xs text-sumi hover:bg-vermilion hover:text-washi transition">
+                    ✕
+                </button>
+            </div>
+
+            <!-- Contenido Scrolleable -->
+            <div class="p-5 overflow-y-auto space-y-6">
+                <!-- Sección Checklist -->
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <h4 class="font-serifJp font-bold text-sm uppercase tracking-wider text-sumi">Lista de Equipaje (Guardado automático)</h4>
+                        <span id="checklist-counter" class="text-xs font-bold px-2.5 py-0.5 bg-vermilion text-washi">0/0</span>
+                    </div>
+                    <div id="checklist-list" class="space-y-2">
+                        <!-- Items generados por JS -->
+                    </div>
+                </div>
+
+                <!-- Sección Frases en Japonés -->
+                <div class="bg-washiDark/70 border-2 border-sumi p-4">
+                    <h4 class="font-serifJp font-bold text-sm uppercase tracking-wider text-vermilion mb-3">
+                        Frases Esenciales en Japonés
+                    </h4>
+                    <div id="phrases-list" class="space-y-2.5">
+                        <!-- Frases generadas por JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- ZONA DE EDICIÓN: MODIFICA AQUÍ TU ITINERARIO, DÍAS Y FOTOS LOCALES    -->
+    <!-- ===================================================================== -->
+    <script>
+        /**
+         * 1. DATOS GENERALES DEL VIAJE
+         */
+        const CONFIG_VIAJE = {
+            tituloPrincipal: "CRÓNICA DE",
+            tituloDestacado: "JAPÓN",
+            subtitulo: "De los santuarios milenarios cubiertos de niebla y tinta hasta las antiguas rutas samuráis y callejones tradicionales.",
+            fechas: "10 OCT — 24 OCT",
+            ciudadesResumen: "TOKIO • KIOTO • OSAKA"
+        };
+
+        /**
+         * 2. CRONOGRAMA POR DÍAS (FORMATO JSON FÁCIL DE EDITAR)
+         * ---------------------------------------------------------------------
+         * CÓMO AGREGAR TUS PROPIAS FOTOS LOCALES:
+         * 1. Crea una carpeta llamada "fotos" junto a este archivo index.html.
+         * 2. Guarda ahí tus imágenes (ejemplo: "dia1.jpg", "fushimi.jpg").
+         * 3. Cambia "fotoPrincipal" o "imagen" por la ruta local: "fotos/dia1.jpg".
+         */
+        const ITINERARIO_JAPON = [
+            {
+                dia: 1,
+                kanjiDia: "壱",
+                ciudadCorta: "Tokio",
+                fecha: "Sábado 10 de Octubre",
+                ciudad: "Tokio · Asakusa y Shinjuku",
+                tituloDia: "Llegada al corazón antiguo y nocturno de Tokio",
+                fotoPrincipal: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1000&q=80",
+                pieFoto: "Lámina I — Horizonte de Tokio al caer la tarde",
+                actividades: [
+                    {
+                        hora: "09:30",
+                        categoria: "Templo",
+                        titulo: "Templo Senso-ji y Puerta Kaminarimon",
+                        lugar: "Asakusa, Tokio",
+                        descripcion: "Cruzar la gran linterna roja de Kaminarimon, recorrer la calle comercial Nakamise y obtener un amuleto Omikuji.",
+                        imagen: "https://images.unsplash.com/photo-1570459027562-4a916cc6113f?auto=format&fit=crop&w=700&q=80",
+                        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Senso-ji+Temple+Tokyo"
+                    },
+                    {
+                        hora: "14:00",
+                        categoria: "Cultura",
+                        titulo: "Santuario Meiji Jingu y Parque Yoyogi",
+                        lugar: "Shibuya, Tokio",
+                        descripcion: "Caminata bajo los enormes arcos Torii de madera de ciprés rodeados de un bosque centenario en medio de la ciudad.",
+                        imagen: "", // Puedes poner aquí: "fotos/meiji.jpg"
+                        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Meiji+Jingu+Tokyo"
+                    },
+                    {
+                        hora: "20:00",
+                        categoria: "Gastronomía",
+                        titulo: "Cena de Yakitori en Omoide Yokocho",
+                        lugar: "Shinjuku, Tokio",
+                        descripcion: "Recorrido por los callejones tradicionales iluminados con faroles rojos y brochetas hechas al carbón binchotan.",
+                        imagen: "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=700&q=80",
+                        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Omoide+Yokocho+Shinjuku"
+                    }
+                ]
+            },
+            {
+                dia: 2,
+                kanjiDia: "弐",
+                ciudadCorta: "Kioto",
+                fecha: "Domingo 11 de Octubre",
+                ciudad: "Kioto · Fushimi y Higashiyama",
+                tituloDia: "Los mil arcos Torii y la antigua capital imperial",
+                fotoPrincipal: "https://images.unsplash.com/photo-1478436127897-769e1b3f0f36?auto=format&fit=crop&w=1000&q=80",
+                pieFoto: "Lámina II — Sendero bermellón de Fushimi Inari-taisha",
+                actividades: [
+                    {
+                        hora: "07:30",
+                        categoria: "Santuario",
+                        titulo: "Ascenso al Monte Inari (Fushimi Inari-taisha)",
+                        lugar: "Fushimi, Kioto",
+                        descripcion: "Caminata temprana por los túneles de miles de arcos torii rojo bermellón antes de la hora pico.",
+                        imagen: "",
+                        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Fushimi+Inari+Taisha+Kyoto"
+                    },
+                    {
+                        hora: "13:00",
+                        categoria: "Mercado",
+                        titulo: "Almuerzo en el Mercado Nishiki",
+                        lugar: "Nakagyo, Kioto",
+                        descripcion: "Conocido como la cocina de Kioto: degustación de brochetas Wagyu, mariscos frescos y té matcha ceremonial.",
+                        imagen: "https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=700&q=80",
+                        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Nishiki+Market+Kyoto"
+                    },
+                    {
+                        hora: "18:30",
+                        categoria: "Histórico",
+                        titulo: "Barrio de Gion y Callejón Pontocho",
+                        lugar: "Higashiyama, Kioto",
+                        descripcion: "Paseo al anochecer entre casas tradicionales de madera machiya junto al río Kamogawa.",
+                        imagen: "",
+                        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Pontocho+Alley+Kyoto"
+                    }
+                ]
+            },
+            {
+                dia: 3,
+                kanjiDia: "参",
+                ciudadCorta: "Osaka",
+                fecha: "Lunes 12 de Octubre",
+                ciudad: "Osaka · Castillo y Dotonbori",
+                tituloDia: "Fortaleza samurái y tradición culinaria de Osaka",
+                fotoPrincipal: "https://images.unsplash.com/photo-1590253230532-a67f6bc61c9e?auto=format&fit=crop&w=1000&q=80",
+                pieFoto: "Lámina III — Torreón principal del Castillo de Osaka",
+                actividades: [
+                    {
+                        hora: "10:00",
+                        categoria: "Castillo",
+                        titulo: "Castillo de Osaka y murallas megalíticas",
+                        lugar: "Chuo, Osaka",
+                        descripcion: "Recorrido por los fosos defensivos, jardines Nishinomaru y museo histórico del periodo Sengoku.",
+                        imagen: "",
+                        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Osaka+Castle"
+                    },
+                    {
+                        hora: "19:30",
+                        categoria: "Gastronomía",
+                        titulo: "Ruta nocturna por Dotonbori y Hozenji Yokocho",
+                        lugar: "Namba, Osaka",
+                        descripcion: "Visita al pequeño templo cubierto de musgo Hozenji y cena de Takoyaki, Okonomiyaki y Ramen.",
+                        imagen: "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&w=700&q=80",
+                        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Hozenji+Yokocho+Osaka"
+                    }
+                ]
+            }
+        ];
+
+        /**
+         * 3. LISTA DE EQUIPAJE Y FRASES EN JAPONÉS
+         */
+        const EQUIPAJE_CHECKLIST = [
+            "Pasaporte vigente + captura del QR de Visit Japan Web",
+            "Tarjeta eSIM de datos activada antes del vuelo",
+            "Tarjeta de transporte Suica / Pasmo en el teléfono",
+            "Efectivo en Yenes (¥) para templos, santuarios y puestos locales",
+            "Batería portátil (Powerbank) y cable de carga",
+            "Adaptador de enchufe Tipo A (clavijas planas)",
+            "Calzado cómodo para caminar más de 15,000 pasos diarios"
+        ];
+
+        const FRASES_JAPONES = [
+            { jp: "Sumimasen (すみません)", es: "Disculpa / Permiso / Llamar al mesero" },
+            { jp: "Arigatou gozaimasu (ありがとうございます)", es: "Muchas gracias" },
+            { jp: "Kore o kudasai (これをください)", es: "Esto, por favor (señalando en el menú)" },
+            { jp: "O-kaikei onegaishimasu (お会計お願いします)", es: "La cuenta, por favor" },
+            { jp: "Eki wa doko desu ka? (駅はどこですか)", es: "¿Dónde está la estación de tren?" }
+        ];
+
+        // =====================================================================
+        // LÓGICA DE RENDERIZADO E INTERACCIÓN (NO ES NECESARIO MODIFICAR)
+        // =====================================================================
+
+        let diaSeleccionado = "todos";
+        let vistaSoloGaleria = false;
+        let fotosSubidasLocales = [];
+
+        document.addEventListener("DOMContentLoaded", () => {
+            cargarConfiguracionCabecera();
+            cargarFotosGuardadas();
+            renderizarFiltrosDia();
+            renderizarItinerario();
+            renderizarGaleria();
+            inicializarModalEquipaje();
+            inicializarEventosGenerales();
+        });
+
+        function cargarConfiguracionCabecera() {
+            document.getElementById("trip-title").innerHTML = `
+                ${CONFIG_VIAJE.tituloPrincipal} <span class="text-vermilion">${CONFIG_VIAJE.tituloDestacado}</span>
+            `;
+            document.getElementById("trip-subtitle").textContent = CONFIG_VIAJE.subtitulo;
+            document.getElementById("header-dates").textContent = CONFIG_VIAJE.fechas;
+            document.getElementById("stat-cities").textContent = CONFIG_VIAJE.ciudadesResumen;
+            document.getElementById("stat-days").textContent = `${String(ITINERARIO_JAPON.length).padStart(2, '0')} JORNADAS`;
+        }
+
+        function cargarFotosGuardadas() {
+            try {
+                fotosSubidasLocales = JSON.parse(localStorage.getItem("ukiyo_japon_fotos")) || [];
+            } catch (e) {
+                fotosSubidasLocales = [];
+            }
+        }
+
+        function inicializarEventosGenerales() {
+            const btnToggle = document.getElementById("btn-toggle-gallery");
+            btnToggle.addEventListener("click", () => {
+                vistaSoloGaleria = !vistaSoloGaleria;
+                const itinCont = document.getElementById("itinerary-container");
+                const galCont = document.getElementById("gallery-container");
+                const label = document.getElementById("btn-gallery-label");
+                const title = document.getElementById("view-title");
+
+                if (vistaSoloGaleria) {
+                    itinCont.classList.add("hidden");
+                    galCont.classList.remove("hidden");
+                    label.textContent = "Itinerario";
+                    title.textContent = "Solo Galería";
+                    renderizarGaleria();
+                } else {
+                    galCont.classList.add("hidden");
+                    itinCont.classList.remove("hidden");
+                    label.textContent = "Solo Galería";
+                    renderizarItinerario();
+                }
+            });
+
+            // Cargar fotos desde el teléfono para previsualizar en la galería
+            document.getElementById("phone-photo-input").addEventListener("change", (e) => {
+                const archivos = Array.from(e.target.files);
+                if (!archivos.length) return;
+
+                archivos.forEach(file => {
+                    const reader = new FileReader();
+                    reader.onload = (ev) => {
+                        fotosSubidasLocales.unshift({
+                            url: ev.target.result,
+                            caption: `Fotografía local — ${file.name}`
+                        });
+                        try {
+                            localStorage.setItem("ukiyo_japon_fotos", JSON.stringify(fotosSubidasLocales.slice(0, 6)));
+                        } catch (err) {
+                            // Si supera límite de almacenamiento, se conserva durante la sesión actual
+                        }
+                        renderizarGaleria();
+                    };
+                    reader.readAsDataURL(file);
+                });
+            });
+        }
+
+        function renderizarFiltrosDia() {
+            const nav = document.getElementById("day-filters");
+            nav.innerHTML = "";
+
+            nav.appendChild(crearBotonFiltro("todos", "Todos los días"));
+
+            ITINERARIO_JAPON.forEach(d => {
+                const etiqueta = d.ciudadCorta ? `Día ${d.dia} · ${d.ciudadCorta}` : `Día ${d.dia}`;
+                nav.appendChild(crearBotonFiltro(d.dia, etiqueta));
+            });
+        }
+
+        function crearBotonFiltro(valor, etiqueta) {
+            const btn = document.createElement("button");
+            const activo = diaSeleccionado === valor && !vistaSoloGaleria;
+
+            btn.textContent = etiqueta;
+            btn.className = activo
+                ? "whitespace-nowrap px-3.5 py-1.5 bg-vermilion text-washi border-2 border-sumi shadow-[2px_2px_0px_#141414] font-serifJp font-bold text-xs transition"
+                : "whitespace-nowrap px-3.5 py-1.5 bg-washi text-sumi hover:bg-washiDark border-2 border-sumi font-serifJp font-bold text-xs transition";
+
+            btn.addEventListener("click", () => {
+                if (vistaSoloGaleria) {
+                    vistaSoloGaleria = false;
+                    document.getElementById("gallery-container").classList.add("hidden");
+                    document.getElementById("itinerary-container").classList.remove("hidden");
+                    document.getElementById("btn-gallery-label").textContent = "Solo Galería";
+                }
+                diaSeleccionado = valor;
+                renderizarFiltrosDia();
+                renderizarItinerario();
+            });
+
+            return btn;
+        }
+
+        function renderizarItinerario() {
+            const contenedor = document.getElementById("itinerary-container");
+            const viewTitle = document.getElementById("view-title");
+            const viewCounter = document.getElementById("view-counter");
+
+            contenedor.innerHTML = "";
+
+            const diasFiltrados = diaSeleccionado === "todos"
+                ? ITINERARIO_JAPON
+                : ITINERARIO_JAPON.filter(d => d.dia === diaSeleccionado);
+
+            viewTitle.textContent = diaSeleccionado === "todos"
+                ? "Itinerario Completo"
+                : `Día ${diasFiltrados[0].dia} · ${diasFiltrados[0].ciudad}`;
+
+            let totalActividades = 0;
+
+            diasFiltrados.forEach(diaObj => {
+                totalActividades += diaObj.actividades.length;
+
+                const card = document.createElement("article");
+                card.className = "relative bg-washi p-5 sm:p-7 ukiyo-frame animate-ink";
+
+                let html = `
+                    <!-- Cabecera del Día con Sello Hanko Rojo -->
+                    <div class="flex items-start gap-4 pb-5 border-b-2 border-sumi">
+                        <div class="w-14 h-14 shrink-0 hanko-seal bg-washi flex flex-col items-center justify-center select-none">
+                            <span class="font-serifJp font-black text-xl leading-none">${diaObj.kanjiDia || diaObj.dia}</span>
+                            <span class="text-[9px] font-bold uppercase tracking-widest mt-1">DÍA ${diaObj.dia}</span>
+                        </div>
+
+                        <div>
+                            <div class="flex flex-wrap items-center gap-2 text-xs font-bold uppercase tracking-wider text-vermilion">
+                                <span>${diaObj.fecha}</span>
+                                <span class="text-sumi/40">•</span>
+                                <span class="text-sumi">${diaObj.ciudad}</span>
+                            </div>
+                            <h3 class="font-serifJp font-extrabold text-xl sm:text-2xl text-sumi mt-1 leading-snug">
+                                ${diaObj.tituloDia}
+                            </h3>
+                        </div>
+                    </div>
+                `;
+
+                // Fotografía Principal del Día enmarcada como lámina artística
+                if (diaObj.fotoPrincipal) {
+                    html += `
+                        <div class="my-6">
+                            <div class="group cursor-pointer bg-washiDark p-2 sm:p-2.5 ukiyo-frame-sm"
+                                 onclick="abrirLightbox('${diaObj.fotoPrincipal}', '${(diaObj.pieFoto || diaObj.tituloDia).replace(/'/g, "\\'")}')">
+                                <div class="aspect-[16/9] overflow-hidden border border-sumi bg-sumi">
+                                    <img src="${diaObj.fotoPrincipal}" alt="${diaObj.tituloDia}" 
+                                         class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                                         loading="lazy"
+                                         onerror="this.src='https://placehold.co/900x500/E6DEC8/141414?text=Lamina+Dia+${diaObj.dia}'">
+                                </div>
+                                <div class="pt-2.5 px-1 flex items-center justify-between gap-2">
+                                    <p class="font-serifJp font-bold text-xs sm:text-sm text-sumi truncate">
+                                        ${diaObj.pieFoto || diaObj.tituloDia}
+                                    </p>
+                                    <span class="text-[11px] font-bold text-vermilion shrink-0 group-hover:underline">
+                                        Ampliar 🔍
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                // Línea de tiempo vertical con trazo de tinta
+                html += `<div class="mt-6 space-y-5 relative before:absolute before:inset-y-2 before:left-2.5 before:w-0.5 before:bg-sumi">`;
+
+                diaObj.actividades.forEach(act => {
+                    html += `
+                        <div class="relative pl-8">
+                            <!-- Punto de tinta y bermellón -->
+                            <div class="absolute left-1 top-2 w-3.5 h-3.5 rounded-full bg-vermilion border-2 border-sumi"></div>
+
+                            <div class="bg-washiDark/45 border-2 border-sumi p-4 hover:bg-washiDark/80 transition">
+                                <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5">
+                                    <div class="flex items-center gap-2">
+                                        <span class="px-2 py-0.5 bg-sumi text-washi font-serifJp font-bold text-xs">
+                                            ${act.hora}
+                                        </span>
+                                        <span class="px-2 py-0.5 bg-washi border border-sumi text-vermilion font-bold text-[11px] uppercase tracking-wider">
+                                            ${act.categoria}
+                                        </span>
+                                    </div>
+                                    <span class="text-xs font-semibold text-stoneGray">📍 ${act.lugar}</span>
+                                </div>
+
+                                <h4 class="font-serifJp font-extrabold text-lg text-sumi">
+                                    ${act.titulo}
+                                </h4>
+
+                                <p class="text-sm text-sumiSoft mt-1 leading-relaxed">
+                                    ${act.descripcion}
+                                </p>
+
+                                ${act.imagen ? `
+                                    <div class="mt-3.5">
+                                        <div class="inline-block max-w-xs bg-washi p-1.5 border-2 border-sumi cursor-pointer group"
+                                             onclick="abrirLightbox('${act.imagen}', '${act.titulo.replace(/'/g, "\\'")}')">
+                                            <img src="${act.imagen}" alt="${act.titulo}" class="h-36 w-full object-cover border border-sumi group-hover:opacity-90 transition" loading="lazy" onerror="this.parentElement.style.display='none'">
+                                            <span class="block text-[11px] font-bold text-center text-sumi mt-1">Ver fotografía</span>
+                                        </div>
+                                    </div>
+                                ` : ''}
+
+                                ${act.mapsUrl ? `
+                                    <div class="mt-4 pt-3 border-t border-sumi/20 flex justify-end">
+                                        <a href="${act.mapsUrl}" target="_blank" rel="noopener noreferrer"
+                                           class="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2 bg-washi hover:bg-vermilion text-sumi hover:text-washi border-2 border-sumi shadow-[2px_2px_0px_#141414] font-serifJp font-bold text-xs transition">
+                                            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                            </svg>
+                                            <span>Ver en Google Maps</span>
+                                        </a>
+                                    </div>
+                                ` : ''}
+                            </div>
+                        </div>
+                    `;
+                });
+
+                html += `</div>`;
+                card.innerHTML = html;
+                contenedor.appendChild(card);
+            });
+
+            viewCounter.textContent = `${totalActividades} ${totalActividades === 1 ? 'actividad' : 'actividades'}`;
+        }
+
+        function renderizarGaleria() {
+            const grid = document.getElementById("gallery-grid");
+            const viewCounter = document.getElementById("view-counter");
+            grid.innerHTML = "";
+
+            const todasLasFotos = [...fotosSubidasLocales];
+
+            ITINERARIO_JAPON.forEach(d => {
+                if (d.fotoPrincipal) {
+                    todasLasFotos.push({
+                        url: d.fotoPrincipal,
+                        caption: `Día ${d.dia} · ${d.pieFoto || d.tituloDia}`
+                    });
+                }
+                d.actividades.forEach(act => {
+                    if (act.imagen) {
+                        todasLasFotos.push({
+                            url: act.imagen,
+                            caption: `Día ${d.dia} · ${act.titulo}`
+                        });
+                    }
+                });
+            });
+
+            viewCounter.textContent = `${todasLasFotos.length} fotografías`;
+
+            todasLasFotos.forEach(foto => {
+                const item = document.createElement("div");
+                item.className = "bg-washi p-2.5 ukiyo-frame-sm cursor-pointer group";
+                item.onclick = () => abrirLightbox(foto.url, foto.caption);
+
+                item.innerHTML = `
+                    <div class="aspect-[16/10] overflow-hidden border border-sumi bg-sumi">
+                        <img src="${foto.url}" alt="${foto.caption}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
+                    </div>
+                    <p class="font-serifJp font-bold text-xs sm:text-sm text-sumi mt-2.5 px-1 truncate">
+                        ${foto.caption}
+                    </p>
+                `;
+                grid.appendChild(item);
+            });
+        }
+
+        // Lightbox
+        function abrirLightbox(url, caption) {
+            const modal = document.getElementById("lightbox-modal");
+            document.getElementById("lightbox-img").src = url;
+            document.getElementById("lightbox-caption").textContent = caption || "";
+            modal.classList.remove("hidden");
+        }
+
+        function cerrarLightbox() {
+            document.getElementById("lightbox-modal").classList.add("hidden");
+        }
+
+        // Modal Equipaje & Frases
+        function inicializarModalEquipaje() {
+            const modal = document.getElementById("checklist-modal");
+            const btnOpen = document.getElementById("btn-open-checklist");
+            const btnClose = document.getElementById("btn-close-checklist");
+            const listCont = document.getElementById("checklist-list");
+            const phrasesCont = document.getElementById("phrases-list");
+            const counter = document.getElementById("checklist-counter");
+
+            let estadoChecklist = {};
+            try {
+                estadoChecklist = JSON.parse(localStorage.getItem("ukiyo_japon_checklist")) || {};
+            } catch (e) {}
+
+            function actualizarProgreso() {
+                const completados = EQUIPAJE_CHECKLIST.filter((_, i) => estadoChecklist[i]).length;
+                counter.textContent = `${completados}/${EQUIPAJE_CHECKLIST.length}`;
+            }
+
+            EQUIPAJE_CHECKLIST.forEach((item, idx) => {
+                const label = document.createElement("label");
+                label.className = "flex items-center gap-3 p-3 bg-washiDark/40 border-2 border-sumi cursor-pointer hover:bg-washiDark transition select-none";
+
+                const cb = document.createElement("input");
+                cb.type = "checkbox";
+                cb.checked = !!estadoChecklist[idx];
+                cb.className = "w-4 h-4 accent-vermilion";
+
+                const span = document.createElement("span");
+                span.textContent = item;
+                span.className = cb.checked ? "text-xs sm:text-sm line-through text-stoneGray" : "text-xs sm:text-sm text-sumi font-semibold";
+
+                cb.addEventListener("change", () => {
+                    estadoChecklist[idx] = cb.checked;
+                    try { localStorage.setItem("ukiyo_japon_checklist", JSON.stringify(estadoChecklist)); } catch (e) {}
+                    span.className = cb.checked ? "text-xs sm:text-sm line-through text-stoneGray" : "text-xs sm:text-sm text-sumi font-semibold";
+                    actualizarProgreso();
+                });
+
+                label.appendChild(cb);
+                label.appendChild(span);
+                listCont.appendChild(label);
+            });
+
+            actualizarProgreso();
+
+            FRASES_JAPONES.forEach(f => {
+                const row = document.createElement("div");
+                row.className = "p-2.5 bg-washi border-l-4 border-vermilion";
+                row.innerHTML = `
+                    <div class="font-serifJp font-bold text-sm text-sumi">${f.jp}</div>
+                    <div class="text-xs text-sumiSoft mt-0.5">${f.es}</div>
+                `;
+                phrasesCont.appendChild(row);
+            });
+
+            btnOpen.addEventListener("click", () => modal.classList.remove("hidden"));
+            btnClose.addEventListener("click", () => modal.classList.add("hidden"));
+            modal.addEventListener("click", (e) => { if (e.target === modal) modal.classList.add("hidden"); });
+        }
+    </script>
+</body>
+</html>
