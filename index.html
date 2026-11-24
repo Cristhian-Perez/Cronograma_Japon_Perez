@@ -3,34 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>日本紀行 — Bitácora Tradicional de Viaje a Japón</title>
-    
-    <!-- Tailwind CSS -->
+    <title>日本紀行 2027 — Itinerario Unificado Japón (18 Días)</title>
+
+    <!-- Tailwind CSS vía CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Tipografía Japonesa Clásica con carácter (Shippori Mincho, Noto Serif JP) + Lectura limpia (Plus Jakarta Sans) -->
+
+    <!-- Google Fonts: Shippori Mincho (Editorial Japonesa), Noto Sans JP (Lectura) y JetBrains Mono (Fechas/Logística) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Shippori+Mincho:wght@600;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@600;700;800&display=swap" rel="stylesheet">
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         washi: '#F4EFE6',
-                        washiDark: '#E6DEC8',
+                        washiDark: '#E7DEC8',
                         sumi: '#141414',
-                        sumiSoft: '#2B2B2B',
+                        sumiSoft: '#2C2A27',
                         vermilion: '#B81D24',
                         vermilionDeep: '#8A1117',
+                        antiqueGold: '#B8860B',
                         indigoOni: '#1C5D8C',
-                        ochreGold: '#C68B2C',
-                        stoneGray: '#5C5852'
+                        stoneInk: '#5B564E'
                     },
                     fontFamily: {
-                        serifJp: ['"Shippori Mincho"', '"Noto Serif JP"', 'serif'],
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serifJp: ['"Shippori Mincho"', 'serif'],
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace']
                     }
                 }
             }
@@ -38,268 +39,301 @@
     </script>
 
     <style>
-        /* Fondo de papel japonés grueso (Washi) con grano sutil y patrón tradicional de olas Seigaiha */
+        /* Papel japonés marfil texturizado (#F4EFE6) con grano de tinta */
         body {
             background-color: #F4EFE6;
-            background-image: 
+            background-image:
                 radial-gradient(rgba(20, 20, 20, 0.045) 1px, transparent 0),
-                radial-gradient(rgba(184, 29, 36, 0.03) 1px, transparent 0);
-            background-size: 22px 22px;
-            background-position: 0 0, 11px 11px;
+                radial-gradient(rgba(184, 134, 11, 0.04) 1px, transparent 0);
+            background-size: 24px 24px;
+            background-position: 0 0, 12px 12px;
             color: #141414;
+            overflow-x: hidden;
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* Patrón tradicional de olas japonesas (Seigaiha) para la cabecera */
-        .seigaiha-bg {
-            background-color: #EFE8DA;
-            background-image: 
-                radial-gradient(circle at 100% 150%, #EFE8DA 24%, rgba(20,20,20,0.06) 25%, rgba(20,20,20,0.06) 28%, #EFE8DA 29%, #EFE8DA 36%, rgba(20,20,20,0.06) 36%, rgba(20,20,20,0.06) 40%, transparent 40%, transparent),
-                radial-gradient(circle at 0    150%, #EFE8DA 24%, rgba(20,20,20,0.06) 25%, rgba(20,20,20,0.06) 28%, #EFE8DA 29%, #EFE8DA 36%, rgba(20,20,20,0.06) 36%, rgba(20,20,20,0.06) 40%, transparent 40%, transparent),
-                radial-gradient(circle at 50%  100%, rgba(20,20,20,0.06) 10%, #EFE8DA 11%, #EFE8DA 23%, rgba(20,20,20,0.06) 24%, rgba(20,20,20,0.06) 30%, #EFE8DA 31%, #EFE8DA 43%, rgba(20,20,20,0.06) 44%, rgba(20,20,20,0.06) 50%, #EFE8DA 51%, #EFE8DA 63%, rgba(20,20,20,0.06) 64%, rgba(20,20,20,0.06) 71%, transparent 71%, transparent),
-                radial-gradient(circle at 100% 50%, rgba(20,20,20,0.06) 5%, #EFE8DA 6%, #EFE8DA 15%, rgba(20,20,20,0.06) 16%, rgba(20,20,20,0.06) 20%, #EFE8DA 21%, #EFE8DA 30%, rgba(20,20,20,0.06) 31%, rgba(20,20,20,0.06) 35%, #EFE8DA 36%, #EFE8DA 45%, rgba(20,20,20,0.06) 46%, rgba(20,20,20,0.06) 49%, transparent 50%, transparent),
-                radial-gradient(circle at 0    50%, rgba(20,20,20,0.06) 5%, #EFE8DA 6%, #EFE8DA 15%, rgba(20,20,20,0.06) 16%, rgba(20,20,20,0.06) 20%, #EFE8DA 21%, #EFE8DA 30%, rgba(20,20,20,0.06) 31%, rgba(20,20,20,0.06) 35%, #EFE8DA 36%, #EFE8DA 45%, rgba(20,20,20,0.06) 46%, rgba(20,20,20,0.06) 49%, transparent 50%, transparent);
-            background-size: 64px 32px;
+        /* Patrón tradicional de olas japonesas (Seigaiha) para el Hero */
+        .seigaiha-pattern {
+            background-color: #EDE4D3;
+            background-image:
+                radial-gradient(circle at 100% 150%, #EDE4D3 24%, rgba(20, 20, 20, 0.065) 25%, rgba(20, 20, 20, 0.065) 28%, #EDE4D3 29%, #EDE4D3 36%, rgba(20, 20, 20, 0.065) 36%, rgba(20, 20, 20, 0.065) 40%, transparent 40%, transparent),
+                radial-gradient(circle at 0    150%, #EDE4D3 24%, rgba(20, 20, 20, 0.065) 25%, rgba(20, 20, 20, 0.065) 28%, #EDE4D3 29%, #EDE4D3 36%, rgba(20, 20, 20, 0.065) 36%, rgba(20, 20, 20, 0.065) 40%, transparent 40%, transparent),
+                radial-gradient(circle at 50%  100%, rgba(20, 20, 20, 0.065) 10%, #EDE4D3 11%, #EDE4D3 23%, rgba(20, 20, 20, 0.065) 24%, rgba(20, 20, 20, 0.065) 30%, #EDE4D3 31%, #EDE4D3 43%, rgba(20, 20, 20, 0.065) 44%, rgba(20, 20, 20, 0.065) 50%, #EDE4D3 51%, #EDE4D3 63%, rgba(20, 20, 20, 0.065) 64%, rgba(20, 20, 20, 0.065) 71%, transparent 71%, transparent),
+                radial-gradient(circle at 100% 50%, rgba(20, 20, 20, 0.065) 5%, #EDE4D3 6%, #EDE4D3 15%, rgba(20, 20, 20, 0.065) 16%, rgba(20, 20, 20, 0.065) 20%, #EDE4D3 21%, #EDE4D3 30%, rgba(20, 20, 20, 0.065) 31%, rgba(20, 20, 20, 0.065) 35%, #EDE4D3 36%, #EDE4D3 45%, rgba(20, 20, 20, 0.065) 46%, rgba(20, 20, 20, 0.065) 49%, transparent 50%, transparent),
+                radial-gradient(circle at 0    50%, rgba(20, 20, 20, 0.065) 5%, #EDE4D3 6%, #EDE4D3 15%, rgba(20, 20, 20, 0.065) 16%, rgba(20, 20, 20, 0.065) 20%, #EDE4D3 21%, #EDE4D3 30%, rgba(20, 20, 20, 0.065) 31%, rgba(20, 20, 20, 0.065) 35%, #EDE4D3 36%, #EDE4D3 45%, rgba(20, 20, 20, 0.065) 46%, rgba(20, 20, 20, 0.065) 49%, transparent 50%, transparent);
+            background-size: 68px 34px;
         }
 
-        /* Ocultar scrollbar en filtros horizontales */
+        /* Ocultar barra de scroll en selectores horizontales */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-        /* Marco estilo grabado en madera Ukiyo-e con sombra dura de tinta */
-        .ukiyo-frame {
+        /* Marcos estilo grabado Xilografía Ukiyo-e con sombra dura de tinta */
+        .ukiyo-card {
             border: 2.5px solid #141414;
             box-shadow: 5px 5px 0px #141414;
         }
 
-        .ukiyo-frame-sm {
+        .ukiyo-box {
             border: 2px solid #141414;
             box-shadow: 3px 3px 0px #141414;
         }
 
         /* Escritura vertical tradicional japonesa (Tategaki) */
-        .vertical-jp {
+        .tategaki {
             writing-mode: vertical-rl;
             text-orientation: upright;
         }
 
         /* Sello rojo tradicional Hanko */
-        .hanko-seal {
+        .hanko-stamp {
             border: 2.5px solid #B81D24;
             color: #B81D24;
             box-shadow: inset 0 0 0 1px rgba(184, 29, 36, 0.25);
         }
 
-        @keyframes inkFade {
+        @keyframes brushReveal {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .animate-ink {
-            animation: inkFade 0.4s ease-out forwards;
+        .animate-brush {
+            animation: brushReveal 0.35s ease-out forwards;
         }
     </style>
 </head>
 <body class="font-sans antialiased pb-24 selection:bg-vermilion selection:text-washi">
 
     <!-- ===================================================================== -->
-    <!-- CABECERA ARTÍSTICA ESTILO PERGAMINO / LÁMINA UKIYO-E & SUMI-E         -->
+    <!-- CABECERA HERO: ARTE UKIYO-E / SUMI-E + MÁSCARA ONI + RUTA GENERAL     -->
     <!-- ===================================================================== -->
-    <header class="relative seigaiha-bg border-b-4 border-sumi overflow-hidden">
-        <!-- Trazo superior de tinta negra -->
+    <header class="relative seigaiha-pattern border-b-4 border-sumi overflow-hidden">
+        <!-- Franja superior de tinta y oro antiguo -->
         <div class="h-2 bg-sumi w-full"></div>
+        <div class="h-1 bg-antiqueGold w-full"></div>
 
-        <!-- Pinceladas decorativas de tinta Sumi-e en las esquinas -->
-        <svg class="absolute top-0 left-0 w-64 h-64 text-sumi opacity-10 pointer-events-none" viewBox="0 0 200 200" fill="currentColor">
-            <path d="M0,0 L160,0 C120,25 85,30 60,70 C35,110 25,140 0,180 Z"/>
+        <!-- Pinceladas Sumi-e decorativas de fondo -->
+        <svg class="absolute -top-6 -left-6 w-72 h-72 text-sumi opacity-[0.07] pointer-events-none" viewBox="0 0 200 200" fill="currentColor">
+            <path d="M0,0 L180,0 C130,30 95,40 70,85 C45,130 30,160 0,200 Z"/>
         </svg>
 
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 pt-6 pb-9 relative z-10">
-            <!-- Barra superior con Sello de Artista Ukiyo-e y Fechas -->
-            <div class="flex items-center justify-between gap-3 mb-6 pb-3 border-b-2 border-sumi/20">
-                <div class="flex items-center gap-2.5">
-                    <span class="inline-block w-3 h-3 bg-vermilion rotate-45 border border-sumi"></span>
-                    <span class="font-serifJp font-bold text-xs sm:text-sm tracking-[0.2em] uppercase text-sumi">
-                        CUADERNO DE RUTA • JAPÓN
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 pt-6 pb-8 relative z-10">
+            <!-- Barra superior: Etiqueta + Fechas -->
+            <div class="flex flex-wrap items-center justify-between gap-2 pb-4 mb-6 border-b-2 border-sumi/20">
+                <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 bg-vermilion border border-sumi rotate-45 inline-block"></span>
+                    <span class="font-serifJp font-bold text-xs sm:text-sm tracking-[0.18em] uppercase text-sumi">
+                        EXPEDICIÓN IMPERIAL • JAPÓN
                     </span>
                 </div>
-                <span id="header-dates" class="font-serifJp font-bold text-xs sm:text-sm px-3 py-1 bg-washi border-2 border-sumi text-sumi">
-                    10 OCT — 24 OCT
-                </span>
+                <div class="flex items-center gap-2">
+                    <span id="hero-dates" class="font-mono font-bold text-xs sm:text-sm px-3 py-1 bg-washi border-2 border-sumi text-sumi shadow-[2px_2px_0px_#141414]">
+                        15 Mar 2027 — 01 Abr 2027
+                    </span>
+                </div>
             </div>
 
-            <!-- Composición Principal: Sello Vertical + Títulos + Ilustración Máscara Oni / Sumi-e -->
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-                
-                <!-- Columna Izquierda: Sello de artista tradicional + Título -->
-                <div class="md:col-span-7 flex items-start gap-4 sm:gap-5">
-                    <!-- Sello Vertical Tradicional Japonés (Tategaki) estilo Irezumi / Ukiyo-e -->
-                    <div class="shrink-0 bg-washi border-2 border-sumi p-1.5 shadow-[3px_3px_0px_#141414] select-none flex flex-col items-center">
-                        <!-- Estrella/Emblema rojo superior -->
-                        <svg class="w-5 h-5 text-vermilion mb-1" viewBox="0 0 24 24" fill="currentColor" stroke="#141414" stroke-width="1.5">
-                            <polygon points="12,2 15,9 22,9 16.5,14 18.5,21 12,17 5.5,21 7.5,14 2,9 9,9"/>
-                        </svg>
-                        <div class="border-t-2 border-sumi pt-1.5">
-                            <span class="vertical-jp font-serifJp font-black text-sumi text-base sm:text-lg tracking-widest leading-none">
+            <!-- Bloque Central del Hero -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                <!-- Columna Izquierda (7 cols): Sello Vertical + Título + Descripción -->
+                <div class="lg:col-span-7 flex items-start gap-4 sm:gap-5">
+                    <!-- Sello Vertical Tradicional Japonés (日本紀行 2027) -->
+                    <div class="shrink-0 bg-washi border-2 border-sumi p-2 shadow-[3px_3px_0px_#141414] select-none flex flex-col items-center">
+                        <span class="w-5 h-5 bg-vermilion text-washi font-serifJp font-bold text-[10px] flex items-center justify-center border border-sumi mb-1.5">
+                            旅
+                        </span>
+                        <div class="border-t-2 border-b-2 border-sumi py-2">
+                            <span class="tategaki font-serifJp font-extrabold text-sumi text-base sm:text-lg tracking-[0.2em] leading-none">
                                 日本紀行
                             </span>
                         </div>
+                        <span class="font-mono font-bold text-[10px] text-vermilion mt-1.5 tracking-tighter">
+                            2027
+                        </span>
                     </div>
 
-                    <!-- Texto Principal -->
+                    <!-- Títulos y Métricas -->
                     <div class="space-y-3">
-                        <div class="inline-block px-2.5 py-0.5 bg-vermilion text-washi font-serifJp font-bold text-xs tracking-widest uppercase">
-                            BITÁCORA DE EXPEDICIÓN
+                        <div class="inline-flex items-center gap-2 px-2.5 py-0.5 bg-vermilion text-washi font-serifJp font-bold text-xs tracking-widest uppercase border border-sumi">
+                            <span>BITÁCORA DE RUTA</span>
+                            <span class="text-washi/70">•</span>
+                            <span id="hero-duration-badge" class="font-mono">18 DÍAS</span>
                         </div>
 
-                        <h1 id="trip-title" class="font-serifJp font-black text-3xl sm:text-5xl text-sumi tracking-tight leading-[1.1]">
-                            CRÓNICA DE <span class="text-vermilion">JAPÓN</span>
+                        <h1 id="hero-title" class="font-serifJp font-extrabold text-2xl sm:text-4xl lg:text-[40px] text-sumi leading-[1.15] tracking-tight">
+                            Itinerario Unificado Japón 2027 (18 Días)
                         </h1>
 
-                        <p id="trip-subtitle" class="text-sm sm:text-base text-sumiSoft leading-relaxed font-medium">
-                            De los santuarios milenarios cubiertos de niebla y tinta hasta las antiguas rutas samuráis y callejones tradicionales.
+                        <p class="text-sm sm:text-base text-sumiSoft leading-relaxed">
+                            Travesía completa desde las metrópolis y parques temáticos hasta los volcanes de Hakone, bosques de bambú en Kioto y santuarios milenarios.
                         </p>
 
-                        <!-- Resumen de Ruta en tarjetas enmarcadas -->
-                        <div class="pt-2 flex flex-wrap gap-2.5">
+                        <!-- Indicadores rápidos -->
+                        <div class="pt-1 flex flex-wrap gap-2.5">
                             <div class="bg-washi border-2 border-sumi px-3 py-1.5 shadow-[2px_2px_0px_#141414]">
-                                <span class="block text-[10px] font-bold uppercase tracking-wider text-stoneGray">RUTA</span>
-                                <span id="stat-cities" class="font-serifJp font-bold text-xs sm:text-sm text-sumi">TOKIO • KIOTO • OSAKA</span>
+                                <span class="block font-mono text-[10px] uppercase text-stoneInk">ESTACIÓN</span>
+                                <span class="font-serifJp font-bold text-xs sm:text-sm text-sumi">Inicio de Sakura 🌸</span>
                             </div>
                             <div class="bg-washi border-2 border-sumi px-3 py-1.5 shadow-[2px_2px_0px_#141414]">
-                                <span class="block text-[10px] font-bold uppercase tracking-wider text-stoneGray">DURACIÓN</span>
-                                <span id="stat-days" class="font-serifJp font-bold text-xs sm:text-sm text-vermilion">03 JORNADAS</span>
+                                <span class="block font-mono text-[10px] uppercase text-stoneInk">DESTINOS CLAVE</span>
+                                <span class="font-serifJp font-bold text-xs sm:text-sm text-vermilion">8 Regiones Conectadas</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Columna Derecha: ILUSTRACIÓN SVG TRADICIONAL (SOL CARMESÍ SUMI-E + MÁSCARA ONI ÍNDIGO + OLAS IREZUMI) -->
-                <div class="md:col-span-5 flex justify-center">
+                <!-- Columna Derecha (5 cols): ILUSTRACIÓN SVG TRADICIONAL MÁSCARA ONI / HANNYA + SOL SUMI-E -->
+                <div class="lg:col-span-5 flex justify-center">
                     <div class="relative w-64 h-64 sm:w-72 sm:h-72 flex items-center justify-center">
-                        <svg viewBox="0 0 340 340" class="w-full h-full drop-shadow-[0_6px_12px_rgba(20,20,20,0.22)]" xmlns="http://www.w3.org/2000/svg">
+                        <svg viewBox="0 0 360 360" class="w-full h-full drop-shadow-[0_8px_14px_rgba(20,20,20,0.22)]" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustración tradicional japonesa de Máscara Oni azul índigo frente al sol carmesí">
                             <defs>
-                                <!-- Sol Rojo Carmesí estilo pincelada Sumi-e -->
-                                <radialGradient id="sumiSun" cx="48%" cy="48%" r="52%">
-                                    <stop offset="0%" stop-color="#C81D25" stop-opacity="0.95"/>
-                                    <stop offset="72%" stop-color="#B81D24" stop-opacity="0.88"/>
-                                    <stop offset="92%" stop-color="#B81D24" stop-opacity="0.35"/>
+                                <!-- Sol Carmesí con efecto pincelada Sumi-e -->
+                                <radialGradient id="crimsonSunGrad" cx="50%" cy="48%" r="52%">
+                                    <stop offset="0%" stop-color="#C81D25" stop-opacity="0.96"/>
+                                    <stop offset="70%" stop-color="#B81D24" stop-opacity="0.9"/>
+                                    <stop offset="92%" stop-color="#B81D24" stop-opacity="0.32"/>
                                     <stop offset="100%" stop-color="#B81D24" stop-opacity="0"/>
                                 </radialGradient>
 
-                                <!-- Azul Índigo Tradicional con sombreado Ukiyo-e para la Máscara Oni -->
-                                <linearGradient id="indigoMask" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stop-color="#3B82B6"/>
-                                    <stop offset="45%" stop-color="#1C5D8C"/>
+                                <!-- Azul Índigo Tradicional para la Máscara Oni -->
+                                <linearGradient id="oniIndigoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#357AB0"/>
+                                    <stop offset="48%" stop-color="#1C5D8C"/>
                                     <stop offset="100%" stop-color="#0E3352"/>
                                 </linearGradient>
 
-                                <!-- Ocre / Dorado antiguo para los cuernos -->
-                                <linearGradient id="ochreHorn" x1="0%" y1="100%" x2="100%" y2="0%">
-                                    <stop offset="0%" stop-color="#8C5819"/>
-                                    <stop offset="55%" stop-color="#C68B2C"/>
-                                    <stop offset="100%" stop-color="#E8C272"/>
+                                <!-- Oro Antiguo (#B8860B) para los Cuernos -->
+                                <linearGradient id="antiqueGoldHorn" x1="0%" y1="100%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#7D5805"/>
+                                    <stop offset="50%" stop-color="#B8860B"/>
+                                    <stop offset="100%" stop-color="#E5BE53"/>
                                 </linearGradient>
 
-                                <!-- Llamas rojo bermellón -->
-                                <linearGradient id="vermilionFlame" x1="0%" y1="100%" x2="0%" y2="0%">
-                                    <stop offset="0%" stop-color="#9E141B"/>
-                                    <stop offset="60%" stop-color="#D92B2B"/>
-                                    <stop offset="100%" stop-color="#E66C2C"/>
+                                <!-- Llamas Rojo Bermellón -->
+                                <linearGradient id="vermilionFireGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+                                    <stop offset="0%" stop-color="#8A1117"/>
+                                    <stop offset="55%" stop-color="#B81D24"/>
+                                    <stop offset="100%" stop-color="#DF5A20"/>
                                 </linearGradient>
                             </defs>
 
-                            <!-- 1. Sol Rojo Carmesí de fondo con textura de pincel -->
-                            <circle cx="170" cy="155" r="126" fill="url(#sumiSun)"/>
-                            <!-- Trazos horizontales de pincel seco sobre el sol -->
-                            <path d="M68 125 Q170 118 272 128" stroke="#EFE8DA" stroke-width="2.5" opacity="0.35" fill="none"/>
-                            <path d="M55 162 Q170 155 285 165" stroke="#EFE8DA" stroke-width="2" opacity="0.28" fill="none"/>
+                            <!-- 1. Sol Rojo Carmesí detrás con trazos de pincel seco -->
+                            <circle cx="180" cy="162" r="134" fill="url(#crimsonSunGrad)"/>
+                            <path d="M68 128 Q180 120 292 130" stroke="#EDE4D3" stroke-width="2.5" opacity="0.36" fill="none"/>
+                            <path d="M56 168 Q180 160 304 170" stroke="#EDE4D3" stroke-width="2" opacity="0.28" fill="none"/>
+                            <path d="M74 205 Q180 198 286 208" stroke="#EDE4D3" stroke-width="1.8" opacity="0.22" fill="none"/>
 
-                            <!-- 2. Olas y Nubes de Tinta Negra estilo Irezumi / Ukiyo-e -->
-                            <path d="M55 245 C40 205, 55 165, 82 150 C68 175, 75 205, 95 225 Z" fill="#141414"/>
-                            <path d="M285 245 C300 205, 285 165, 258 150 C272 175, 265 205, 245 225 Z" fill="#141414"/>
-                            
-                            <!-- Olas estilizadas en la base con crestas blancas -->
-                            <path d="M35 268 Q75 232 115 262 Q155 232 195 262 Q235 232 275 262 Q295 248 308 268 L295 298 Q170 315 45 298 Z" 
+                            <!-- 2. Nubes y Olas de Tinta Negra estilo Irezumi -->
+                            <path d="M58 258 C42 214, 58 170, 88 154 C72 182, 80 214, 102 236 Z" fill="#141414"/>
+                            <path d="M302 258 C318 214, 302 170, 272 154 C288 182, 280 214, 258 236 Z" fill="#141414"/>
+
+                            <!-- Olas japonesas en la base con crestas blancas -->
+                            <path d="M36 282 Q78 242 120 276 Q162 242 204 276 Q246 242 288 276 Q310 260 324 282 L310 315 Q180 334 50 315 Z"
                                   fill="#141414" stroke="#141414" stroke-width="2"/>
-                            <path d="M52 268 Q82 246 112 266 M135 266 Q165 246 195 266 M218 266 Q248 246 278 266" 
-                                  stroke="#F4EFE6" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                            <path d="M54 282 Q86 258 118 280 M142 280 Q174 258 206 280 M230 280 Q262 258 294 280"
+                                  stroke="#F4EFE6" stroke-width="2.8" stroke-linecap="round" fill="none"/>
 
-                            <!-- 3. Llamas Bermellón tradicionales envolviendo los lados -->
-                            <path d="M84 228 C58 195, 65 152, 92 132 C82 162, 90 188, 108 208 Z" fill="url(#vermilionFlame)" stroke="#141414" stroke-width="2"/>
-                            <path d="M256 228 C282 195, 275 152, 248 132 C258 162, 250 188, 232 208 Z" fill="url(#vermilionFlame)" stroke="#141414" stroke-width="2"/>
+                            <!-- 3. Llamas Bermellón envolviendo los costados -->
+                            <path d="M88 240 C60 205, 68 160, 96 138 C86 170, 95 198, 114 220 Z" fill="url(#vermilionFireGrad)" stroke="#141414" stroke-width="2.2"/>
+                            <path d="M272 240 C300 205, 292 160, 264 138 C274 170, 265 198, 246 220 Z" fill="url(#vermilionFireGrad)" stroke="#141414" stroke-width="2.2"/>
 
-                            <!-- 4. Cuernos Dorados / Ocres de la Máscara Oni -->
-                            <path d="M118 112 C98 78, 92 46, 108 20 C118 48, 128 78, 140 104 Z" fill="url(#ochreHorn)" stroke="#141414" stroke-width="3"/>
-                            <path d="M222 112 C242 78, 248 46, 232 20 C222 48, 212 78, 200 104 Z" fill="url(#ochreHorn)" stroke="#141414" stroke-width="3"/>
-                            <!-- Textura de estrías en los cuernos -->
-                            <path d="M104 68 L122 63 M101 48 L116 44 M236 68 L218 63 M239 48 L224 44" stroke="#141414" stroke-width="2.2" stroke-linecap="round"/>
+                            <!-- 4. Cuernos en Oro Antiguo de la Máscara Oni -->
+                            <path d="M124 118 C102 82, 96 48, 114 20 C124 50, 135 82, 148 110 Z" fill="url(#antiqueGoldHorn)" stroke="#141414" stroke-width="3.2"/>
+                            <path d="M236 118 C258 82, 264 48, 246 20 C236 50, 225 82, 212 110 Z" fill="url(#antiqueGoldHorn)" stroke="#141414" stroke-width="3.2"/>
+                            <!-- Estrías grabadas en los cuernos -->
+                            <path d="M109 72 L128 66 M106 50 L122 46 M251 72 L232 66 M254 50 L238 46" stroke="#141414" stroke-width="2.4" stroke-linecap="round"/>
 
-                            <!-- 5. Cabellera de Tinta Negra -->
-                            <path d="M96 122 C72 150, 68 195, 84 235 L104 212 L102 145 Z" fill="#141414"/>
-                            <path d="M244 122 C268 150, 272 195, 256 235 L236 212 L238 145 Z" fill="#141414"/>
+                            <!-- 5. Melena de Tinta Sumi -->
+                            <path d="M100 128 C74 158, 70 205, 88 248 L110 224 L108 152 Z" fill="#141414"/>
+                            <path d="M260 128 C286 158, 290 205, 272 248 L250 224 L252 152 Z" fill="#141414"/>
 
-                            <!-- 6. Rostro Principal de la Máscara Oni / Hannya (Azul Índigo Profundo) -->
-                            <path d="M108 112 C132 94, 208 94, 232 112 L242 168 C238 212, 214 252, 170 266 C126 252, 102 212, 98 168 Z" 
-                                  fill="url(#indigoMask)" stroke="#141414" stroke-width="3.8" stroke-linejoin="round"/>
+                            <!-- 6. Rostro de la Máscara Oni / Hannya (Azul Índigo) -->
+                            <path d="M114 118 C140 98, 220 98, 246 118 L256 178 C252 224, 226 266, 180 280 C134 266, 108 224, 104 178 Z"
+                                  fill="url(#oniIndigoGrad)" stroke="#141414" stroke-width="4" stroke-linejoin="round"/>
 
-                            <!-- Líneas de expresión y pómulos tallados en madera -->
-                            <path d="M106 175 C122 182, 128 198, 122 218" stroke="#0B2236" stroke-width="3" fill="none" stroke-linecap="round"/>
-                            <path d="M234 175 C218 182, 212 198, 218 218" stroke="#0B2236" stroke-width="3" fill="none" stroke-linecap="round"/>
-                            <path d="M148 112 Q170 122 192 112" stroke="#0B2236" stroke-width="2.5" fill="none"/>
+                            <!-- Líneas talladas de pómulos y frente -->
+                            <path d="M112 184 C128 192, 134 210, 128 230" stroke="#0B2236" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+                            <path d="M248 184 C232 192, 226 210, 232 230" stroke="#0B2236" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+                            <path d="M156 118 Q180 128 204 118" stroke="#0B2236" stroke-width="2.5" fill="none"/>
 
                             <!-- Entrecejo feroz -->
-                            <path d="M118 134 L160 154 L170 142 L180 154 L222 134 L212 122 L170 136 L128 122 Z" fill="#141414"/>
+                            <path d="M124 142 L168 162 L180 150 L192 162 L236 142 L226 128 L180 144 L134 128 Z" fill="#141414"/>
 
-                            <!-- 7. Ojos Amarillos Intensos con pupila oscura tradicional -->
-                            <polygon points="122,152 156,162 150,176 120,168" fill="#141414"/>
-                            <circle cx="139" cy="164" r="6.5" fill="#F2C94C"/>
-                            <circle cx="139" cy="164" r="2.3" fill="#B81D24"/>
+                            <!-- 7. Ojos Amarillos Intensos con pupila bermellón -->
+                            <polygon points="128,160 164,170 158,186 126,178" fill="#141414"/>
+                            <circle cx="146" cy="173" r="7" fill="#FFD43B"/>
+                            <circle cx="146" cy="173" r="2.5" fill="#B81D24"/>
 
-                            <polygon points="218,152 184,162 190,176 220,168" fill="#141414"/>
-                            <circle cx="201" cy="164" r="6.5" fill="#F2C94C"/>
-                            <circle cx="201" cy="164" r="2.3" fill="#B81D24"/>
+                            <polygon points="232,160 196,170 202,186 234,178" fill="#141414"/>
+                            <circle cx="214" cy="173" r="7" fill="#FFD43B"/>
+                            <circle cx="214" cy="173" r="2.5" fill="#B81D24"/>
 
-                            <!-- Nariz tradicional Oni -->
-                            <path d="M161 170 L170 158 L179 170 L185 192 L170 197 L155 192 Z" fill="#134266" stroke="#141414" stroke-width="2.5" stroke-linejoin="round"/>
+                            <!-- Nariz Oni -->
+                            <path d="M170 180 L180 166 L190 180 L196 204 L180 209 L164 204 Z" fill="#134266" stroke="#141414" stroke-width="2.8" stroke-linejoin="round"/>
 
-                            <!-- 8. Boca abierta con interior bermellón y colmillos dorados -->
-                            <path d="M124 214 Q170 196 216 214 L208 242 Q170 254 132 242 Z" fill="#7A0E14" stroke="#141414" stroke-width="3"/>
-                            <!-- Dientes superiores e inferiores -->
-                            <path d="M146 210 L151 221 L156 209 M164 208 L170 220 L176 208 M184 209 L189 221 L194 210" fill="#F4EFE6" stroke="#141414" stroke-width="1.2"/>
-                            <path d="M150 242 L155 231 L160 243 M165 243 L170 232 L175 243 M180 243 L185 231 L190 242" fill="#F4EFE6" stroke="#141414" stroke-width="1.2"/>
+                            <!-- 8. Boca abierta con colmillos en oro antiguo -->
+                            <path d="M132 226 Q180 208 228 226 L220 256 Q180 268 140 256 Z" fill="#7A0E14" stroke="#141414" stroke-width="3.2"/>
+                            <!-- Dientes -->
+                            <path d="M155 222 L160 234 L165 221 M174 220 L180 233 L186 220 M195 221 L200 234 L205 222" fill="#F4EFE6" stroke="#141414" stroke-width="1.3"/>
+                            <path d="M158 256 L163 244 L168 257 M175 257 L180 245 L185 257 M192 257 L197 244 L202 256" fill="#F4EFE6" stroke="#141414" stroke-width="1.3"/>
                             <!-- Colmillos largos -->
-                            <path d="M131 214 L138 238 L146 212 Z" fill="url(#ochreHorn)" stroke="#141414" stroke-width="2"/>
-                            <path d="M209 214 L202 238 L194 212 Z" fill="url(#ochreHorn)" stroke="#141414" stroke-width="2"/>
-                            <path d="M134 241 L141 218 L148 243 Z" fill="url(#ochreHorn)" stroke="#141414" stroke-width="2"/>
-                            <path d="M206 241 L199 218 L192 243 Z" fill="url(#ochreHorn)" stroke="#141414" stroke-width="2"/>
+                            <path d="M139 226 L146 252 L155 224 Z" fill="url(#antiqueGoldHorn)" stroke="#141414" stroke-width="2.2"/>
+                            <path d="M221 226 L214 252 L205 224 Z" fill="url(#antiqueGoldHorn)" stroke="#141414" stroke-width="2.2"/>
+                            <path d="M142 255 L149 230 L157 257 Z" fill="url(#antiqueGoldHorn)" stroke="#141414" stroke-width="2.2"/>
+                            <path d="M218 255 L211 230 L203 257 Z" fill="url(#antiqueGoldHorn)" stroke="#141414" stroke-width="2.2"/>
                         </svg>
                     </div>
+                </div>
+            </div>
+
+            <!-- RUTA GENERAL INTERACTIVA -->
+            <div class="mt-6 pt-5 border-t-2 border-sumi/25">
+                <div class="flex items-center justify-between mb-2.5">
+                    <span class="font-serifJp font-bold text-xs uppercase tracking-widest text-sumi flex items-center gap-1.5">
+                        <span class="text-vermilion">❖</span> Ruta General del Viaje (Toca un destino para filtrar)
+                    </span>
+                    <span class="font-mono text-[11px] text-stoneInk hidden sm:inline">Tokio → Fukuoka / Tokio</span>
+                </div>
+                <div id="hero-route-pills" class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                    <!-- Generado dinámicamente desde ITINERARIO_JAPON.ruta_general -->
                 </div>
             </div>
         </div>
     </header>
 
     <!-- ===================================================================== -->
-    <!-- BARRA DE NAVEGACIÓN PEGAJOSA (FILTROS POR DÍA + GALERÍA + EQUIPAJE)   -->
+    <!-- BARRA DE NAVEGACIÓN PEGAJOSA: REGIONES + 18 DÍAS + RESERVAS Y GALERÍA -->
     <!-- ===================================================================== -->
     <nav class="sticky top-0 z-30 bg-washi/95 backdrop-blur-sm border-b-2 border-sumi shadow-sm">
-        <div class="max-w-4xl mx-auto px-4 py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            <!-- Filtros horizontales por día -->
-            <div id="day-filters" class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 sm:pb-0">
-                <!-- Botones generados dinámicamente -->
+        <div class="max-w-5xl mx-auto px-4 py-2.5 space-y-2.5">
+            <!-- Fila 1: Filtros por Región + Botones de Acción (Reservas Críticas, Galería, Bifurcación Cierre) -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2.5">
+                <!-- Filtros rápidos por ciudad/región -->
+                <div id="region-filters" class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-0.5 md:pb-0">
+                    <!-- Botones generados dinámicamente -->
+                </div>
+
+                <!-- Botones de acción derecha -->
+                <div class="flex items-center gap-2 shrink-0">
+                    <button id="btn-open-reservations" class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-3 py-1.5 bg-vermilion hover:bg-vermilionDeep text-washi border-2 border-sumi shadow-[2px_2px_0px_#141414] font-serifJp font-bold text-xs transition active:translate-y-0.5">
+                        <span>⛩️ Reservas Críticas</span>
+                        <span id="nav-res-badge" class="font-mono text-[11px] px-1.5 py-0.2 bg-sumi text-washi">0/5</span>
+                    </button>
+
+                    <button id="btn-toggle-gallery" class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-3 py-1.5 bg-washi hover:bg-washiDark text-sumi border-2 border-sumi shadow-[2px_2px_0px_#141414] font-serifJp font-bold text-xs transition active:translate-y-0.5">
+                        <span>🖼️</span>
+                        <span id="btn-gallery-text">Galería 18 Días</span>
+                    </button>
+                </div>
             </div>
 
-            <!-- Botones de Vista y Equipaje -->
-            <div class="flex items-center gap-2 shrink-0">
-                <button id="btn-toggle-gallery" class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-3.5 py-2 bg-washi hover:bg-washiDark text-sumi border-2 border-sumi shadow-[2px_2px_0px_#141414] font-serifJp font-bold text-xs transition active:translate-y-0.5">
-                    <span>🖼️</span>
-                    <span id="btn-gallery-label">Solo Galería</span>
-                </button>
-
-                <button id="btn-open-checklist" class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-3.5 py-2 bg-sumi hover:bg-sumiSoft text-washi border-2 border-sumi shadow-[2px_2px_0px_#B81D24] font-serifJp font-bold text-xs transition active:translate-y-0.5">
-                    <span>🎒</span>
-                    <span>Equipaje & Notas</span>
-                </button>
+            <!-- Fila 2: Selector horizontal de los 18 Días con fecha y día de la semana -->
+            <div class="pt-2 border-t border-sumi/15 flex items-center gap-2">
+                <span class="font-mono font-bold text-[10px] uppercase tracking-wider text-stoneInk shrink-0 hidden sm:inline">
+                    DÍAS:
+                </span>
+                <div id="day-selector-strip" class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5 w-full">
+                    <!-- 18 tarjetas compactas de día generadas por JS -->
+                </div>
             </div>
         </div>
     </nav>
@@ -307,55 +341,97 @@
     <!-- ===================================================================== -->
     <!-- CONTENIDO PRINCIPAL                                                   -->
     <!-- ===================================================================== -->
-    <main class="max-w-4xl mx-auto px-4 pt-8">
-        <!-- Encabezado de Sección -->
-        <div class="flex items-center justify-between mb-6 pb-2.5 border-b-2 border-sumi">
+    <main class="max-w-5xl mx-auto px-4 pt-7">
+        <!-- Barra de estado de vista y selector global de cierre (Tokio vs Fukuoka) -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 pb-3 border-b-2 border-sumi">
             <div class="flex items-center gap-2.5">
-                <span class="w-2.5 h-2.5 bg-vermilion inline-block"></span>
-                <h2 id="view-title" class="font-serifJp font-extrabold text-lg sm:text-xl text-sumi tracking-tight">
-                    Itinerario Completo
+                <span class="w-3 h-3 bg-vermilion border border-sumi inline-block"></span>
+                <h2 id="section-heading" class="font-serifJp font-extrabold text-xl sm:text-2xl text-sumi">
+                    Todos los Días (1 — 18)
                 </h2>
+                <span id="section-badge" class="font-mono text-xs font-bold px-2.5 py-0.5 bg-washiDark border border-sumi text-sumi">
+                    18 jornadas
+                </span>
             </div>
-            <span id="view-counter" class="text-xs font-bold px-2.5 py-1 bg-washiDark border border-sumi text-sumi">
-                0 actividades
-            </span>
+
+            <!-- Selector Global para Días 17 y 18 (Tokio vs Fukuoka) -->
+            <div id="closure-route-bar" class="flex items-center gap-1.5 bg-washiDark p-1 border-2 border-sumi self-start sm:self-auto">
+                <span class="font-mono text-[10px] font-bold uppercase px-1.5 text-stoneInk">Cierre D17-18:</span>
+                <button data-closure="ambas" class="closure-btn px-2 py-1 font-serifJp font-bold text-xs bg-sumi text-washi transition">
+                    Ambas
+                </button>
+                <button data-closure="A" class="closure-btn px-2 py-1 font-serifJp font-bold text-xs text-sumi hover:bg-washi transition">
+                    Opción A: Tokio
+                </button>
+                <button data-closure="B" class="closure-btn px-2 py-1 font-serifJp font-bold text-xs text-sumi hover:bg-washi transition">
+                    Opción B: Fukuoka
+                </button>
+            </div>
         </div>
 
-        <!-- VISTA 1: TARJETAS DE ITINERARIO POR DÍA -->
-        <div id="itinerary-container" class="space-y-10">
+        <!-- VISTA 1: TARJETAS DE LOS 18 DÍAS -->
+        <div id="days-container" class="space-y-9">
             <!-- Renderizado dinámico por JS -->
         </div>
 
-        <!-- VISTA 2: SOLO GALERÍA & SUBIDA RÁPIDA DE FOTOS -->
-        <section id="gallery-container" class="hidden animate-ink">
-            <div class="bg-washi p-5 sm:p-6 mb-7 ukiyo-frame flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <!-- SECCIÓN RESUMEN DE RESERVAS CRÍTICAS (TAMBIÉN ACCESIBLE DESDE EL MODAL) -->
+        <section id="critical-reservations-section" class="mt-14 bg-washi p-5 sm:p-7 ukiyo-card">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 mb-5 border-b-2 border-sumi">
+                <div class="flex items-center gap-3">
+                    <div class="w-11 h-11 hanko-stamp bg-washi flex items-center justify-center font-serifJp font-extrabold text-lg shrink-0">
+                        予約
+                    </div>
+                    <div>
+                        <span class="font-mono text-[11px] font-bold uppercase tracking-widest text-vermilion">ALERTAS DE COMPRA ANTICIPADA</span>
+                        <h3 class="font-serifJp font-extrabold text-xl sm:text-2xl text-sumi">Reservas Críticas Japón 2027</h3>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-xs font-medium text-stoneInk">Progreso guardado:</span>
+                    <span id="section-res-counter" class="font-mono font-bold text-xs px-3 py-1 bg-sumi text-washi border border-sumi">
+                        0 / 5 Reservadas
+                    </span>
+                </div>
+            </div>
+
+            <div id="section-reservations-list" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Renderizado dinámico sincronizado con el modal -->
+            </div>
+        </section>
+
+        <!-- VISTA 2: GALERÍA DE LOS 18 DÍAS -->
+        <section id="gallery-view" class="hidden animate-brush">
+            <div class="bg-washi p-5 sm:p-6 mb-7 ukiyo-card flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                    <span class="text-xs font-bold uppercase tracking-widest text-vermilion">ARCHIVO VISUAL DEL VIAJE</span>
-                    <h3 class="font-serifJp font-extrabold text-xl text-sumi mt-0.5">Álbum de Fotografías</h3>
+                    <span class="font-mono text-xs font-bold uppercase tracking-widest text-vermilion">ÁLBUM DE EXPEDICIÓN</span>
+                    <h3 class="font-serifJp font-extrabold text-xl sm:text-2xl text-sumi mt-0.5">Galería Visual de los 18 Días</h3>
                     <p class="text-xs sm:text-sm text-sumiSoft mt-1">
-                        Toca cualquier imagen para verla en pantalla completa o carga fotos desde tu dispositivo para previsualizarlas.
+                        Explora las láminas de cada jornada, amplíalas en pantalla completa o carga fotografías propias desde tu dispositivo.
                     </p>
                 </div>
 
                 <label class="cursor-pointer inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-vermilion hover:bg-vermilionDeep text-washi border-2 border-sumi shadow-[3px_3px_0px_#141414] font-serifJp font-bold text-xs transition shrink-0">
-                    <span>+ Cargar fotos del teléfono</span>
-                    <input type="file" id="phone-photo-input" accept="image/*" multiple class="hidden">
+                    <span>+ Cargar fotos del teléfono/PC</span>
+                    <input type="file" id="gallery-upload-input" accept="image/*" multiple class="hidden">
                 </label>
             </div>
 
-            <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <!-- Fotos renderizadas dinámicamente -->
+            <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Tarjetas de galería renderizadas dinámicamente -->
             </div>
         </section>
     </main>
 
     <!-- ===================================================================== -->
-    <!-- LIGHTBOX A PANTALLA COMPLETA PARA AMPLIAR FOTOGRAFÍAS                 -->
+    <!-- LIGHTBOX MODAL PARA AMPLIAR IMÁGENES EN PANTALLA COMPLETA             -->
     <!-- ===================================================================== -->
     <div id="lightbox-modal" class="fixed inset-0 z-50 hidden bg-sumi/90 backdrop-blur-xs flex items-center justify-center p-4" onclick="cerrarLightbox()">
-        <div class="relative max-w-3xl w-full bg-washi border-4 border-sumi p-3 sm:p-4 shadow-[8px_8px_0px_#B81D24] animate-ink" onclick="event.stopPropagation()">
+        <div class="relative max-w-4xl w-full bg-washi border-4 border-sumi p-3 sm:p-4 shadow-[8px_8px_0px_#B81D24] animate-brush" onclick="event.stopPropagation()">
             <div class="flex items-center justify-between pb-2.5 mb-3 border-b-2 border-sumi">
-                <span class="font-serifJp font-bold text-xs tracking-widest uppercase text-vermilion">LÁMINA FOTOGRÁFICA</span>
+                <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 bg-vermilion inline-block"></span>
+                    <span id="lightbox-tag" class="font-mono font-bold text-xs uppercase tracking-wider text-vermilion">LÁMINA DE VIAJE</span>
+                </div>
                 <button onclick="cerrarLightbox()" class="px-3 py-1 bg-sumi text-washi font-serifJp font-bold text-xs hover:bg-vermilion transition">
                     ✕ Cerrar
                 </button>
@@ -368,488 +444,887 @@
     </div>
 
     <!-- ===================================================================== -->
-    <!-- MODAL: EQUIPAJE (CHECKLIST) & NOTAS / FRASES EN JAPONÉS               -->
+    <!-- MODAL INTERACTIVO DE RESERVAS CRÍTICAS                                -->
     <!-- ===================================================================== -->
-    <div id="checklist-modal" class="fixed inset-0 z-50 hidden bg-sumi/75 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4">
-        <div class="bg-washi w-full max-w-xl border-t-4 sm:border-4 border-sumi shadow-[8px_8px_0px_#141414] overflow-hidden max-h-[90vh] flex flex-col animate-ink">
-            <!-- Cabecera del Modal -->
+    <div id="reservations-modal" class="fixed inset-0 z-50 hidden bg-sumi/80 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4">
+        <div class="bg-washi w-full max-w-2xl border-t-4 sm:border-4 border-sumi shadow-[8px_8px_0px_#B8860B] overflow-hidden max-h-[90vh] flex flex-col animate-brush">
             <div class="px-5 py-4 bg-washiDark border-b-2 border-sumi flex items-center justify-between">
                 <div class="flex items-center gap-3">
-                    <span class="hanko-seal px-2 py-0.5 font-serifJp font-black text-sm bg-washi">旅具</span>
-                    <h3 class="font-serifJp font-extrabold text-xl text-sumi">Equipaje & Frases Útiles</h3>
+                    <span class="hanko-stamp px-2 py-0.5 font-serifJp font-extrabold text-sm bg-washi">重要</span>
+                    <div>
+                        <h3 class="font-serifJp font-extrabold text-lg sm:text-xl text-sumi">Reservas Críticas Japón 2027</h3>
+                        <p class="font-mono text-[11px] text-stoneInk">Marca cada entrada conforme la asegures (autoguardado)</p>
+                    </div>
                 </div>
-                <button id="btn-close-checklist" class="px-2.5 py-1 bg-washi border-2 border-sumi font-bold text-xs text-sumi hover:bg-vermilion hover:text-washi transition">
+                <button id="btn-close-reservations" class="px-3 py-1 bg-washi border-2 border-sumi font-bold text-xs text-sumi hover:bg-vermilion hover:text-washi transition">
                     ✕
                 </button>
             </div>
 
-            <!-- Contenido Scrolleable -->
-            <div class="p-5 overflow-y-auto space-y-6">
-                <!-- Sección Checklist -->
-                <div>
-                    <div class="flex items-center justify-between mb-3">
-                        <h4 class="font-serifJp font-bold text-sm uppercase tracking-wider text-sumi">Lista de Equipaje (Guardado automático)</h4>
-                        <span id="checklist-counter" class="text-xs font-bold px-2.5 py-0.5 bg-vermilion text-washi">0/0</span>
-                    </div>
-                    <div id="checklist-list" class="space-y-2">
-                        <!-- Items generados por JS -->
-                    </div>
-                </div>
-
-                <!-- Sección Frases en Japonés -->
-                <div class="bg-washiDark/70 border-2 border-sumi p-4">
-                    <h4 class="font-serifJp font-bold text-sm uppercase tracking-wider text-vermilion mb-3">
-                        Frases Esenciales en Japonés
-                    </h4>
-                    <div id="phrases-list" class="space-y-2.5">
-                        <!-- Frases generadas por JS -->
-                    </div>
-                </div>
+            <div id="modal-reservations-list" class="p-5 overflow-y-auto space-y-3">
+                <!-- Lista de las 5 reservas críticas con checkboxes -->
             </div>
         </div>
     </div>
 
     <!-- ===================================================================== -->
-    <!-- ZONA DE EDICIÓN: MODIFICA AQUÍ TU ITINERARIO, DÍAS Y FOTOS LOCALES    -->
+    <!-- ZONA DE EDICIÓN: CONSTANTE JSON DEL ITINERARIO COMPLETO (18 DÍAS)     -->
     <!-- ===================================================================== -->
     <script>
         /**
-         * 1. DATOS GENERALES DEL VIAJE
+         * =====================================================================
+         * INSTRUCCIONES PARA PERSONALIZAR TUS FOTOS LOCALES:
+         * 1. Crea una carpeta llamada "fotos" en el mismo directorio que este index.html.
+         * 2. Guarda tus imágenes dentro (ej: "fotos/dia1.jpg", "fotos/dia2.jpg", etc.).
+         * 3. En cada objeto del arreglo `dias`, cambia el valor de `imagen` por tu ruta local:
+         *    Ejemplo: "imagen": "fotos/dia1.jpg",
+         * También puedes cambiar fotos directamente desde la web usando el botón "Cambiar foto"
+         * que aparece en cada día.
+         * =====================================================================
          */
-        const CONFIG_VIAJE = {
-            tituloPrincipal: "CRÓNICA DE",
-            tituloDestacado: "JAPÓN",
-            subtitulo: "De los santuarios milenarios cubiertos de niebla y tinta hasta las antiguas rutas samuráis y callejones tradicionales.",
-            fechas: "10 OCT — 24 OCT",
-            ciudadesResumen: "TOKIO • KIOTO • OSAKA"
+        const ITINERARIO_JAPON = {
+            "titulo": "Itinerario Unificado Japón 2027 (18 Días)",
+            "pais": "Japón",
+            "fecha_inicio": "2027-03-15",
+            "fecha_fin": "2027-04-01",
+            "duracion_dias": 18,
+            "ruta_general": [
+                "Tokio",
+                "Monte Fuji / Kawaguchiko",
+                "Hakone",
+                "Nagoya (Ghibli Park)",
+                "Kioto",
+                "Nara",
+                "Osaka",
+                "Tokio o Fukuoka (cierre)"
+            ],
+            "dias": [
+                {
+                    "dia": 1,
+                    "fecha": "2027-03-15",
+                    "dia_semana": "Lunes",
+                    "ciudad_zona": "Tokio (Shinjuku)",
+                    "enfoque": "Llegada a Tokio y recorrido nocturno inicial",
+                    "imagen": "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1000&q=80", // Cambiar por: "fotos/dia1.jpg"
+                    "pie_foto": "Día 01 — Horizonte nocturno de Shinjuku en Tokio",
+                    "actividades": [
+                        "Arribo a aeropuerto Narita o Haneda, migración, activación de eSIM y retiro de tarjeta Suica/Pasmo",
+                        "Paseo nocturno por Shinjuku y cabeza de Godzilla (Hotel Gracery)",
+                        "Cena en Omoide Yokocho",
+                        "Subida al mirador gratuito del Gobierno Metropolitano de Tokio (piso 45)"
+                    ],
+                    "transporte_logistica": "Narita Express, Limousine Bus o tren local hacia el hotel en Tokio."
+                },
+                {
+                    "dia": 2,
+                    "fecha": "2027-03-16",
+                    "dia_semana": "Martes",
+                    "ciudad_zona": "Tokio (Este y Norte)",
+                    "enfoque": "Tradición en Asakusa, cerezos en Ueno y cultura otaku en Akihabara",
+                    "imagen": "https://images.unsplash.com/photo-1570459027562-4a916cc6113f?auto=format&fit=crop&w=1000&q=80", // Cambiar por: "fotos/dia2.jpg"
+                    "pie_foto": "Día 02 — Templo Senso-ji y linterna Kaminarimon en Asakusa",
+                    "actividades": [
+                        "Mañana en Asakusa: templo Senso-ji, calle comercial Nakamise y vista al río Sumida",
+                        "Tarde en Parque Ueno (avistamiento temprano de cerezos Sakura) y mercado Ameyoko",
+                        "Noche en Akihabara: tiendas de anime, tecnología y arcades"
+                    ],
+                    "transporte_logistica": "Metro y líneas JR en el sector noreste de Tokio."
+                },
+                {
+                    "dia": 3,
+                    "fecha": "2027-03-17",
+                    "dia_semana": "Miércoles",
+                    "ciudad_zona": "Tokio (Bahía / Maihama)",
+                    "enfoque": "Día completo en parque temático Disney",
+                    "imagen": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=1000&q=80", // Cambiar por: "fotos/dia3.jpg"
+                    "pie_foto": "Día 03 — Jornada mágica en la Bahía de Tokio / Maihama",
+                    "actividades": [
+                        "Llegada antes de la apertura a Tokyo DisneySea (o Tokyo Disneyland)",
+                        "Recorrido por áreas temáticas principales (como Fantasy Springs en DisneySea) usando la app oficial",
+                        "Desfiles, espectáculos y show nocturno de cierre"
+                    ],
+                    "transporte_logistica": "Tren JR Keiyo Line hacia Maihama (~35 minutos desde el centro de Tokio)."
+                },
+                {
+                    "dia": 4,
+                    "fecha": "2027-03-18",
+                    "dia_semana": "Jueves",
+                    "ciudad_zona": "Tokio (Oeste)",
+                    "enfoque": "Cultura juvenil, miradores y vida nocturna",
+                    "imagen": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=1000&q=80", // Cambiar por: "fotos/dia4.jpg"
+                    "pie_foto": "Día 04 — Cruce de Shibuya y vistas panorámicas de Tokio Oeste",
+                    "actividades": [
+                        "Santuario Meiji Jingu en el bosque Yoyogi",
+                        "Calle Takeshita en Harajuku y avenida Omotesando",
+                        "Cruce de Shibuya, estatua de Hachiko y atardecer en Shibuya Sky",
+                        "Noche de tour en karts por Tokio o salida nocturna"
+                    ],
+                    "transporte_logistica": "Recorrido a pie entre Harajuku y Shibuya + metro/JR. Llevar pasaporte y Permiso Internacional de Conducir si se hace tour en karts."
+                },
+                {
+                    "dia": 5,
+                    "fecha": "2027-03-19",
+                    "dia_semana": "Viernes",
+                    "ciudad_zona": "Monte Fuji / Kawaguchiko",
+                    "enfoque": "Vistas del Monte Fuji, compras en outlet y aguas termales",
+                    "imagen": "https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?auto=format&fit=crop&w=1000&q=80", // Cambiar por: "fotos/dia5.jpg"
+                    "pie_foto": "Día 05 — Pagoda Chureito frente al majestuoso Monte Fuji",
+                    "actividades": [
+                        "Salida temprana hacia el Lago Kawaguchiko",
+                        "Visita a la Pagoda Chureito y paseo por la orilla del lago con vistas al Monte Fuji",
+                        "Tarde de compras en Gotemba Premium Outlets",
+                        "Descanso en aguas termales (onsen)"
+                    ],
+                    "transporte_logistica": "Autobús directo desde Shinjuku (~1h 45m). Enviar maletas grandes mediante servicio Takkyubin hacia Kioto."
+                },
+                {
+                    "dia": 6,
+                    "fecha": "2027-03-20",
+                    "dia_semana": "Sábado",
+                    "ciudad_zona": "Hakone",
+                    "enfoque": "Circuito volcánico de Hakone y experiencia ryokan",
+                    "imagen": "https://images.unsplash.com/photo-1578469645742-46cae010e5d4?auto=format&fit=crop&w=1000&q=80", // Cambiar por: "fotos/dia6.jpg"
+                    "pie_foto": "Día 06 — Arco Torii de la Paz sobre las aguas del Lago Ashi en Hakone",
+                    "actividades": [
+                        "Circuito de Hakone: teleférico sobre el valle volcánico de Owakudani (huevos negros)",
+                        "Crucero panorámico por el Lago Ashi con vista al Monte Fuji",
+                        "Baños termales onsen y alojamiento tradicional en ryokan con cena kaiseki (o descanso antes de continuar)"
+                    ],
+                    "transporte_logistica": "Transporte local de Hakone y conexión hacia el corredor del Shinkansen."
+                },
+                {
+                    "dia": 7,
+                    "fecha": "2027-03-21",
+                    "dia_semana": "Domingo",
+                    "ciudad_zona": "Nagoya",
+                    "enfoque": "Traslado a Nagoya y gastronomía local",
+                    "imagen": "https://images.unsplash.com/photo-1624253321171-1be53e12f5f4?auto=format&fit=crop&w=1000&q=80", // Cambiar por: "fotos/dia7.jpg"
+                    "pie_foto": "Día 07 — Fortaleza histórica y murallas del Castillo de Nagoya",
+                    "actividades": [
+                        "Traslado matutino hacia Nagoya y check-in cerca de la estación",
+                        "Paseo por el centro de Nagoya o alrededores del Castillo de Nagoya",
+                        "Cena típica local (miso katsu o alitas tebasaki) y descanso previo al parque"
+                    ],
+                    "transporte_logistica": "Tren bala Shinkansen hacia la estación de Nagoya."
+                },
+                {
+                    "dia": 8,
+                    "fecha": "2027-03-22",
+                    "dia_semana": "Lunes",
+                    "ciudad_zona": "Nagoya (Nagakute)",
+                    "enfoque": "Día completo en Ghibli Park",
+                    "imagen": "https://images.unsplash.com/photo-1528164344705-47542687000d?auto=format&fit=crop&w=1000&q=80", // Cambiar por: "fotos/dia8.jpg"
+                    "pie_foto": "Día 08 — Naturaleza y mundos de fantasía en Ghibli Park (Aichi)",
+                    "actividades": [
+                        "Ingreso a Ghibli Park dentro de Aichi Expo Memorial Park",
+                        "Recorrido por Grand Warehouse, Valley of Witches, Hill of Youth y edificios emblemáticos (con pase O-Sanpo Day Pass Premium)",
+                        "Regreso a Nagoya estación y cena"
+                    ],
+                    "transporte_logistica": "Tren magnético Linimo desde Fujigaoka hasta Expo Park."
+                },
+                {
+                    "dia": 9,
+                    "fecha": "2027-03-23",
+                    "dia_semana": "Martes",
+                    "ciudad_zona": "Kioto (Este y Gion)",
+                    "enfoque": "Kioto histórico, experiencia de kimono y barrio de geishas",
+                    "imagen": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1000&q=80", // Cambiar por: "fotos/dia9.jpg"
+                    "pie_foto": "Día 09 — Calles empedradas de Higashiyama y pagoda Yasaka en Kioto",
+                    "actividades": [
+                        "Traslado en tren bala a Kioto (~35 min) y recepción de maletas",
+                        "Alquiler de kimono tradicional y sesión fotográfica",
+                        "Visita al templo Kiyomizu-dera y cuestas históricas Sannenzaka y Ninenzaka",
+                        "Ceremonia del té y paseo nocturno por Gion y callejón Pontocho"
+                    ],
+                    "transporte_logistica": "Shinkansen Nagoya → Kioto + desplazamientos a pie y bus/metro en Higashiyama."
+                },
+                {
+                    "dia": 10,
+                    "fecha": "2027-03-24",
+                    "dia_semana": "Miércoles",
+                    "ciudad_zona": "Kioto (Oeste, Norte y Centro)",
+                    "enfoque": "Bosque de bambú, Pabellón Dorado y gastronomía",
+                    "imagen": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&w=1000&q=80", // Cambiar por: "fotos/dia10.jpg"
+                    "pie_foto": "Día 10 — Sendero del Bosque de Bambú de Arashiyama al amanecer",
+                    "actividades": [
+                        "Mañana temprana en Arashiyama: Bosque de Bambú, templo Tenryu-ji y puente Togetsukyo",
+                        "Tarde en el templo del Pabellón Dorado (Kinkaku-ji)",
+                        "Recorrido gastronómico en Mercado Nishiki y paseo comercial por Kawaramachi"
+                    ],
+                    "transporte_logistica": "Trenes y buses urbanos conectando Arashiyama con el norte y centro de Kioto."
+                },
+                {
+                    "dia": 11,
+                    "fecha": "2027-03-25",
+                    "dia_semana": "Jueves",
+                    "ciudad_zona": "Kioto Sur → Nara → Osaka",
+                    "enfoque": "Toriis rojos, ciervos sagrados de Nara y llegada a Osaka",
+                    "imagen": "https://images.unsplash.com/photo-1478436127897-769e1b3f0f36?auto=format&fit=crop&w=1000&q=80", // Cambiar por: "fotos/dia11.jpg"
+                    "pie_foto": "Día 11 — Miles de arcos Torii bermellón en Fushimi Inari-Taisha",
+                    "actividades": [
+                        "Ascenso temprano por los miles de toriis rojos en Fushimi Inari-Taisha",
+                        "Excursión en ruta a Nara: Parque de Nara (galletas shika senbei para los ciervos) y templo Todai-ji",
+                        "Traslado por la tarde a Osaka y cena callejera de takoyaki y okonomiyaki en Dotonbori"
+                    ],
+                    "transporte_logistica": "Trenes JR o Kintetsu en ruta lineal Kioto → Nara → Osaka (~45 min)."
+                },
+                {
+                    "dia": 12,
+                    "fecha": "2027-03-26",
+                    "dia_semana": "Viernes",
+                    "ciudad_zona": "Osaka (Universal Studios Japan)",
+                    "enfoque": "Super Nintendo World y Wizarding World of Harry Potter",
+                    "imagen": "https://images.unsplash.com/photo-1590253230532-a67f6bc61c9e?auto=format&fit=crop&w=1000&q=80", // Cambiar por: "fotos/dia12.jpg"
+                    "pie_foto": "Día 12 — Jornada de aventura en Universal Studios Japan y Namba",
+                    "actividades": [
+                        "Llegada antes de la apertura a Universal Studios Japan",
+                        "Mañana en Super Nintendo World (Mario Kart: Koopa's Challenge y área interactiva)",
+                        "Tarde en The Wizarding World of Harry Potter, Jurassic Park y desfiles",
+                        "Cena y paseo nocturno por Shinsaibashi / Namba"
+                    ],
+                    "transporte_logistica": "Tren JR Yumesaki Line directo hacia Universal City (~15 min)."
+                },
+                {
+                    "dia": 13,
+                    "fecha": "2027-03-27",
+                    "dia_semana": "Sábado",
+                    "ciudad_zona": "Osaka (Compras y Temática)",
+                    "enfoque": "Pokémon Café y compras de souvenirs en Daiso y Don Quijote",
+                    "imagen": "https://images.unsplash.com/photo-1589452271712-64b8a66c7b71?auto=format&fit=crop&w=1000&q=80", // Cambiar por: "fotos/dia13.jpg"
+                    "pie_foto": "Día 13 — Canal de Dotonbori y distrito comercial Shinsaibashi en Osaka",
+                    "actividades": [
+                        "Almuerzo temático en Pokémon Café (Daimaru Shinsaibashi)",
+                        "Compras de papelería, dulces y recuerdos en Daiso y Seria",
+                        "Compras tax-free en Mega Don Quijote Dotonbori",
+                        "Visita opcional al Castillo de Osaka o barrio electrónico Nipponbashi"
+                    ],
+                    "transporte_logistica": "Metro Midosuji Line y recorridos a pie entre Shinsaibashi y Dotonbori."
+                },
+                {
+                    "dia": 14,
+                    "fecha": "2027-03-28",
+                    "dia_semana": "Domingo",
+                    "ciudad_zona": "Osaka (Centro y Shinsekai)",
+                    "enfoque": "Gastronomía de mercado y Osaka retro",
+                    "imagen": "https://images.unsplash.com/photo-1554797589-7241bb691973?auto=format&fit=crop&w=1000&q=80", // Cambiar por: "fotos/dia14.jpg"
+                    "pie_foto": "Día 14 — Ambiente tradicional y retro del barrio Shinsekai en Osaka",
+                    "actividades": [
+                        "Mañana en Mercado Kuromon",
+                        "Paseo por el barrio retro Shinsekai y torre Tsutenkaku",
+                        "Tarde libre para compras o descanso y noche en Dotonbori / América-mura"
+                    ],
+                    "transporte_logistica": "Metro y trenes locales en Osaka."
+                },
+                {
+                    "dia": 15,
+                    "fecha": "2027-03-29",
+                    "dia_semana": "Lunes",
+                    "ciudad_zona": "Osaka (Rinku Town)",
+                    "enfoque": "Compras en outlets",
+                    "imagen": "https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?auto=format&fit=crop&w=1000&q=80", // Cambiar por: "fotos/dia15.jpg"
+                    "pie_foto": "Día 15 — Vista costera en la Bahía de Osaka / Rinku Town",
+                    "actividades": [
+                        "Mañana tranquila en Umeda o descanso",
+                        "Tarde de compras de ropa y marcas en Rinku Premium Outlets (frente al aeropuerto Kansai)",
+                        "Regreso al hotel en Osaka"
+                    ],
+                    "transporte_logistica": "Tren línea Nankai o JR hacia Rinku Town (~40 min)."
+                },
+                {
+                    "dia": 16,
+                    "fecha": "2027-03-30",
+                    "dia_semana": "Martes",
+                    "ciudad_zona": "Osaka / Excursión Kansai",
+                    "enfoque": "Día comodín (Himeji / Kobe) o preparación de equipaje",
+                    "imagen": "https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=1000&q=80", // Cambiar por: "fotos/dia16.jpg"
+                    "pie_foto": "Día 16 — El imponente Castillo de Himeji (Garza Blanca) en Kansai",
+                    "actividades": [
+                        "Opción 1: Excursión al Castillo de Himeji y/o puerto de Kobe",
+                        "Opción 2: Día libre en Osaka para compras finales y organización de maletas"
+                    ],
+                    "transporte_logistica": "Trenes regionales o Shinkansen desde Shin-Osaka."
+                },
+                {
+                    "dia": 17,
+                    "fecha": "2027-03-31",
+                    "dia_semana": "Miércoles",
+                    "ciudad_zona": "Cierre de ruta (Tokio o Fukuoka)",
+                    "enfoque": "Traslado final según ciudad de salida internacional",
+                    "imagen": "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&w=1000&q=80", // Cambiar por: "fotos/dia17.jpg"
+                    "pie_foto": "Día 17 — Travesía final en tren bala Shinkansen hacia Tokio o Fukuoka",
+                    "opciones": {
+                        "opcion_A_tokio": {
+                            "ciudad": "Tokio",
+                            "actividades": [
+                                "Shinkansen Shin-Osaka → Tokio (~2h 30m)",
+                                "Check-in y paseo de última tarde por Ginza o compras finales"
+                            ]
+                        },
+                        "opcion_B_fukuoka": {
+                            "ciudad": "Fukuoka",
+                            "actividades": [
+                                "Shinkansen Shin-Osaka → Hakata / Fukuoka (~2h 30m)",
+                                "Cena nocturna en puestos callejeros yatai de Nakasu (Hakata tonkotsu ramen)"
+                            ]
+                        }
+                    },
+                    "transporte_logistica": "Tren bala Shinkansen Tokaido (hacia Tokio) o Sanyo (hacia Fukuoka)."
+                },
+                {
+                    "dia": 18,
+                    "fecha": "2027-04-01",
+                    "dia_semana": "Jueves",
+                    "ciudad_zona": "Salida desde Tokio o Fukuoka",
+                    "enfoque": "Últimas actividades y salida de Japón",
+                    "imagen": "https://images.unsplash.com/photo-1480796927426-f609979314bd?auto=format&fit=crop&w=1000&q=80", // Cambiar por: "fotos/dia18.jpg"
+                    "pie_foto": "Día 18 — Despedida de Japón tras 18 días inolvidables",
+                    "opciones": {
+                        "opcion_A_tokio": {
+                            "ciudad": "Tokio",
+                            "actividades": [
+                                "Últimas compras y desayuno japonés",
+                                "Traslado al aeropuerto de Narita o Haneda para vuelo de regreso a Colombia (o escala)"
+                            ]
+                        },
+                        "opcion_B_fukuoka": {
+                            "ciudad": "Fukuoka",
+                            "actividades": [
+                                "Visita al Santuario Kushida y compras finales en Canal City Hakata",
+                                "Salida desde aeropuerto de Fukuoka o ferry internacional hacia Busan (Corea del Sur)"
+                            ]
+                        }
+                    },
+                    "transporte_logistica": "Traslado al aeropuerto o terminal portuaria según reserva internacional."
+                }
+            ],
+            "reservas_criticas": [
+                {
+                    "atraccion": "Ghibli Park (Nagoya)",
+                    "anticipacion": "2 meses antes (generalmente el día 10 a las 14:00 JST)",
+                    "nota": "Priorizar O-Sanpo Day Pass Premium para acceso completo a edificios y áreas."
+                },
+                {
+                    "atraccion": "Pokémon Café (Osaka)",
+                    "anticipacion": "31 días antes a las 18:00 JST",
+                    "nota": "Cupos limitados; reservar apenas abra la ventana."
+                },
+                {
+                    "atraccion": "Universal Studios Japan (Osaka)",
+                    "anticipacion": "Tan pronto abran fechas (~1-2 meses antes)",
+                    "nota": "Comprar Studio Pass + Express Pass verificando que incluya acceso a Super Nintendo World."
+                },
+                {
+                    "atraccion": "Tokyo DisneySea / Disneyland",
+                    "anticipacion": "2 meses antes a las 14:00 JST",
+                    "nota": "Japón lleva 14 horas de ventaja respecto a Colombia."
+                },
+                {
+                    "atraccion": "Shibuya Sky",
+                    "anticipacion": "4 semanas antes",
+                    "nota": "Reservar franja de la tarde para ver el atardecer."
+                }
+            ]
         };
 
-        /**
-         * 2. CRONOGRAMA POR DÍAS (FORMATO JSON FÁCIL DE EDITAR)
-         * ---------------------------------------------------------------------
-         * CÓMO AGREGAR TUS PROPIAS FOTOS LOCALES:
-         * 1. Crea una carpeta llamada "fotos" junto a este archivo index.html.
-         * 2. Guarda ahí tus imágenes (ejemplo: "dia1.jpg", "fushimi.jpg").
-         * 3. Cambia "fotoPrincipal" o "imagen" por la ruta local: "fotos/dia1.jpg".
-         */
-        const ITINERARIO_JAPON = [
-            {
-                dia: 1,
-                kanjiDia: "壱",
-                ciudadCorta: "Tokio",
-                fecha: "Sábado 10 de Octubre",
-                ciudad: "Tokio · Asakusa y Shinjuku",
-                tituloDia: "Llegada al corazón antiguo y nocturno de Tokio",
-                fotoPrincipal: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1000&q=80",
-                pieFoto: "Lámina I — Horizonte de Tokio al caer la tarde",
-                actividades: [
-                    {
-                        hora: "09:30",
-                        categoria: "Templo",
-                        titulo: "Templo Senso-ji y Puerta Kaminarimon",
-                        lugar: "Asakusa, Tokio",
-                        descripcion: "Cruzar la gran linterna roja de Kaminarimon, recorrer la calle comercial Nakamise y obtener un amuleto Omikuji.",
-                        imagen: "https://images.unsplash.com/photo-1570459027562-4a916cc6113f?auto=format&fit=crop&w=700&q=80",
-                        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Senso-ji+Temple+Tokyo"
-                    },
-                    {
-                        hora: "14:00",
-                        categoria: "Cultura",
-                        titulo: "Santuario Meiji Jingu y Parque Yoyogi",
-                        lugar: "Shibuya, Tokio",
-                        descripcion: "Caminata bajo los enormes arcos Torii de madera de ciprés rodeados de un bosque centenario en medio de la ciudad.",
-                        imagen: "", // Puedes poner aquí: "fotos/meiji.jpg"
-                        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Meiji+Jingu+Tokyo"
-                    },
-                    {
-                        hora: "20:00",
-                        categoria: "Gastronomía",
-                        titulo: "Cena de Yakitori en Omoide Yokocho",
-                        lugar: "Shinjuku, Tokio",
-                        descripcion: "Recorrido por los callejones tradicionales iluminados con faroles rojos y brochetas hechas al carbón binchotan.",
-                        imagen: "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=700&q=80",
-                        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Omoide+Yokocho+Shinjuku"
-                    }
-                ]
-            },
-            {
-                dia: 2,
-                kanjiDia: "弐",
-                ciudadCorta: "Kioto",
-                fecha: "Domingo 11 de Octubre",
-                ciudad: "Kioto · Fushimi y Higashiyama",
-                tituloDia: "Los mil arcos Torii y la antigua capital imperial",
-                fotoPrincipal: "https://images.unsplash.com/photo-1478436127897-769e1b3f0f36?auto=format&fit=crop&w=1000&q=80",
-                pieFoto: "Lámina II — Sendero bermellón de Fushimi Inari-taisha",
-                actividades: [
-                    {
-                        hora: "07:30",
-                        categoria: "Santuario",
-                        titulo: "Ascenso al Monte Inari (Fushimi Inari-taisha)",
-                        lugar: "Fushimi, Kioto",
-                        descripcion: "Caminata temprana por los túneles de miles de arcos torii rojo bermellón antes de la hora pico.",
-                        imagen: "",
-                        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Fushimi+Inari+Taisha+Kyoto"
-                    },
-                    {
-                        hora: "13:00",
-                        categoria: "Mercado",
-                        titulo: "Almuerzo en el Mercado Nishiki",
-                        lugar: "Nakagyo, Kioto",
-                        descripcion: "Conocido como la cocina de Kioto: degustación de brochetas Wagyu, mariscos frescos y té matcha ceremonial.",
-                        imagen: "https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=700&q=80",
-                        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Nishiki+Market+Kyoto"
-                    },
-                    {
-                        hora: "18:30",
-                        categoria: "Histórico",
-                        titulo: "Barrio de Gion y Callejón Pontocho",
-                        lugar: "Higashiyama, Kioto",
-                        descripcion: "Paseo al anochecer entre casas tradicionales de madera machiya junto al río Kamogawa.",
-                        imagen: "",
-                        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Pontocho+Alley+Kyoto"
-                    }
-                ]
-            },
-            {
-                dia: 3,
-                kanjiDia: "参",
-                ciudadCorta: "Osaka",
-                fecha: "Lunes 12 de Octubre",
-                ciudad: "Osaka · Castillo y Dotonbori",
-                tituloDia: "Fortaleza samurái y tradición culinaria de Osaka",
-                fotoPrincipal: "https://images.unsplash.com/photo-1590253230532-a67f6bc61c9e?auto=format&fit=crop&w=1000&q=80",
-                pieFoto: "Lámina III — Torreón principal del Castillo de Osaka",
-                actividades: [
-                    {
-                        hora: "10:00",
-                        categoria: "Castillo",
-                        titulo: "Castillo de Osaka y murallas megalíticas",
-                        lugar: "Chuo, Osaka",
-                        descripcion: "Recorrido por los fosos defensivos, jardines Nishinomaru y museo histórico del periodo Sengoku.",
-                        imagen: "",
-                        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Osaka+Castle"
-                    },
-                    {
-                        hora: "19:30",
-                        categoria: "Gastronomía",
-                        titulo: "Ruta nocturna por Dotonbori y Hozenji Yokocho",
-                        lugar: "Namba, Osaka",
-                        descripcion: "Visita al pequeño templo cubierto de musgo Hozenji y cena de Takoyaki, Okonomiyaki y Ramen.",
-                        imagen: "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&w=700&q=80",
-                        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Hozenji+Yokocho+Osaka"
-                    }
-                ]
-            }
-        ];
-
-        /**
-         * 3. LISTA DE EQUIPAJE Y FRASES EN JAPONÉS
-         */
-        const EQUIPAJE_CHECKLIST = [
-            "Pasaporte vigente + captura del QR de Visit Japan Web",
-            "Tarjeta eSIM de datos activada antes del vuelo",
-            "Tarjeta de transporte Suica / Pasmo en el teléfono",
-            "Efectivo en Yenes (¥) para templos, santuarios y puestos locales",
-            "Batería portátil (Powerbank) y cable de carga",
-            "Adaptador de enchufe Tipo A (clavijas planas)",
-            "Calzado cómodo para caminar más de 15,000 pasos diarios"
-        ];
-
-        const FRASES_JAPONES = [
-            { jp: "Sumimasen (すみません)", es: "Disculpa / Permiso / Llamar al mesero" },
-            { jp: "Arigatou gozaimasu (ありがとうございます)", es: "Muchas gracias" },
-            { jp: "Kore o kudasai (これをください)", es: "Esto, por favor (señalando en el menú)" },
-            { jp: "O-kaikei onegaishimasu (お会計お願いします)", es: "La cuenta, por favor" },
-            { jp: "Eki wa doko desu ka? (駅はどこですか)", es: "¿Dónde está la estación de tren?" }
-        ];
-
         // =====================================================================
-        // LÓGICA DE RENDERIZADO E INTERACCIÓN (NO ES NECESARIO MODIFICAR)
+        // MOTOR DE APLICACIÓN (FILTROS, GOOGLE MAPS, FOTOS Y RESERVAS)
         // =====================================================================
 
-        let diaSeleccionado = "todos";
-        let vistaSoloGaleria = false;
-        let fotosSubidasLocales = [];
+        const REGIONES = [
+            { id: "todos", label: "Todos (18)", match: () => true },
+            { id: "tokio", label: "Tokio", match: (d) => d.dia >= 1 && d.dia <= 4 },
+            { id: "fuji", label: "Fuji / Hakone", match: (d) => d.dia === 5 || d.dia === 6 },
+            { id: "nagoya", label: "Nagoya", match: (d) => d.dia === 7 || d.dia === 8 },
+            { id: "kioto", label: "Kioto / Nara", match: (d) => d.dia >= 9 && d.dia <= 11 },
+            { id: "osaka", label: "Osaka", match: (d) => d.dia >= 12 && d.dia <= 16 },
+            { id: "cierre", label: "Cierre (D17-18)", match: (d) => d.dia === 17 || d.dia === 18 }
+        ];
+
+        const KANJI_NUMEROS = [
+            "壱", "弐", "参", "四", "五", "六", "七", "八", "九",
+            "拾", "拾壱", "拾弐", "拾参", "拾四", "拾五", "拾六", "拾七", "拾八"
+        ];
+
+        let estadoApp = {
+            regionActiva: "todos",
+            diaUnicoActivo: null, // null = mostrar todos los de la región; número = mostrar solo ese día
+            modoGaleria: false,
+            opcionCierre: "ambas", // "ambas", "A", "B"
+            reservasCompletadas: {},
+            fotosPersonalizadasDia: {}, // { 1: "data:image/...", ... }
+            fotosExtraGaleria: []
+        };
 
         document.addEventListener("DOMContentLoaded", () => {
-            cargarConfiguracionCabecera();
-            cargarFotosGuardadas();
-            renderizarFiltrosDia();
-            renderizarItinerario();
+            cargarEstadoLocal();
+            renderizarHeroRuta();
+            renderizarFiltrosRegion();
+            renderizarSelector18Dias();
+            renderizarDias();
+            renderizarReservasCriticas();
             renderizarGaleria();
-            inicializarModalEquipaje();
-            inicializarEventosGenerales();
+            inicializarEventosUI();
         });
 
-        function cargarConfiguracionCabecera() {
-            document.getElementById("trip-title").innerHTML = `
-                ${CONFIG_VIAJE.tituloPrincipal} <span class="text-vermilion">${CONFIG_VIAJE.tituloDestacado}</span>
-            `;
-            document.getElementById("trip-subtitle").textContent = CONFIG_VIAJE.subtitulo;
-            document.getElementById("header-dates").textContent = CONFIG_VIAJE.fechas;
-            document.getElementById("stat-cities").textContent = CONFIG_VIAJE.ciudadesResumen;
-            document.getElementById("stat-days").textContent = `${String(ITINERARIO_JAPON.length).padStart(2, '0')} JORNADAS`;
-        }
-
-        function cargarFotosGuardadas() {
+        function cargarEstadoLocal() {
             try {
-                fotosSubidasLocales = JSON.parse(localStorage.getItem("ukiyo_japon_fotos")) || [];
+                estadoApp.reservasCompletadas = JSON.parse(localStorage.getItem("japon2027_reservas")) || {};
+                estadoApp.fotosPersonalizadasDia = JSON.parse(localStorage.getItem("japon2027_fotos_dias")) || {};
+                estadoApp.fotosExtraGaleria = JSON.parse(localStorage.getItem("japon2027_fotos_extra")) || [];
             } catch (e) {
-                fotosSubidasLocales = [];
+                // Si el almacenamiento local está restringido, continúa en memoria
             }
         }
 
-        function inicializarEventosGenerales() {
-            const btnToggle = document.getElementById("btn-toggle-gallery");
-            btnToggle.addEventListener("click", () => {
-                vistaSoloGaleria = !vistaSoloGaleria;
-                const itinCont = document.getElementById("itinerary-container");
-                const galCont = document.getElementById("gallery-container");
-                const label = document.getElementById("btn-gallery-label");
-                const title = document.getElementById("view-title");
+        function guardarEstadoLocal() {
+            try {
+                localStorage.setItem("japon2027_reservas", JSON.stringify(estadoApp.reservasCompletadas));
+                localStorage.setItem("japon2027_fotos_dias", JSON.stringify(estadoApp.fotosPersonalizadasDia));
+                localStorage.setItem("japon2027_fotos_extra", JSON.stringify(estadoApp.fotosExtraGaleria.slice(0, 12)));
+            } catch (e) {
+                // Ignorar si excede cuota de localStorage
+            }
+        }
 
-                if (vistaSoloGaleria) {
-                    itinCont.classList.add("hidden");
-                    galCont.classList.remove("hidden");
-                    label.textContent = "Itinerario";
-                    title.textContent = "Solo Galería";
-                    renderizarGaleria();
-                } else {
-                    galCont.classList.add("hidden");
-                    itinCont.classList.remove("hidden");
-                    label.textContent = "Solo Galería";
-                    renderizarItinerario();
-                }
-            });
+        // Formatea fecha YYYY-MM-DD a "15 Mar"
+        function formatearFechaCorta(isoDate) {
+            const meses = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
+            const partes = isoDate.split("-");
+            const mesIdx = parseInt(partes[1], 10) - 1;
+            const diaNum = parseInt(partes[2], 10);
+            return `${diaNum} ${meses[mesIdx]}`;
+        }
 
-            // Cargar fotos desde el teléfono para previsualizar en la galería
-            document.getElementById("phone-photo-input").addEventListener("change", (e) => {
-                const archivos = Array.from(e.target.files);
-                if (!archivos.length) return;
+        // Construye una consulta limpia y precisa para Google Maps según la actividad y ciudad
+        function construirUrlGoogleMaps(actividadTexto, ciudadZona) {
+            let ciudadBase = "Japón";
+            if (ciudadZona.includes("Tokio")) ciudadBase = "Tokyo Japan";
+            else if (ciudadZona.includes("Kawaguchiko") || ciudadZona.includes("Fuji")) ciudadBase = "Kawaguchiko Mount Fuji Japan";
+            else if (ciudadZona.includes("Hakone")) ciudadBase = "Hakone Japan";
+            else if (ciudadZona.includes("Nagoya")) ciudadBase = "Nagoya Japan";
+            else if (ciudadZona.includes("Nara")) ciudadBase = "Nara Kyoto Japan";
+            else if (ciudadZona.includes("Kioto")) ciudadBase = "Kyoto Japan";
+            else if (ciudadZona.includes("Osaka")) ciudadBase = "Osaka Japan";
+            else if (ciudadZona.includes("Fukuoka")) ciudadBase = "Fukuoka Japan";
 
-                archivos.forEach(file => {
-                    const reader = new FileReader();
-                    reader.onload = (ev) => {
-                        fotosSubidasLocales.unshift({
-                            url: ev.target.result,
-                            caption: `Fotografía local — ${file.name}`
-                        });
-                        try {
-                            localStorage.setItem("ukiyo_japon_fotos", JSON.stringify(fotosSubidasLocales.slice(0, 6)));
-                        } catch (err) {
-                            // Si supera límite de almacenamiento, se conserva durante la sesión actual
-                        }
-                        renderizarGaleria();
-                    };
-                    reader.readAsDataURL(file);
+            // Limpia verbos genéricos iniciales para destacar el lugar real en Maps
+            const limpio = actividadTexto
+                .replace(/^(Arribo a|Paseo nocturno por|Cena en|Subida al mirador gratuito del|Mañana en|Tarde en|Noche en|Llegada antes de la apertura a|Recorrido por|Salida temprana hacia el|Visita a la|Visita al|Tarde de compras en|Descanso en|Circuito de|Crucero panorámico por el|Baños termales onsen y alojamiento tradicional en|Traslado matutino hacia|Paseo por el|Cena típica local|Ingreso a|Regreso a|Traslado en tren bala a|Alquiler de|Ceremonia del té y paseo nocturno por|Mañana temprana en|Recorrido gastronómico en|Ascenso temprano por los miles de toriis rojos en|Excursión en ruta a|Traslado por la tarde a|Almuerzo temático en|Compras de|Compras tax-free en|Visita opcional al|Mañana tranquila en|Tarde de compras de ropa y marcas en|Opción 1: Excursión al|Opción 2:|Check-in y paseo de última tarde por|Cena nocturna en puestos callejeros|Últimas compras y|Traslado al|Salida desde)\s+/i, "")
+                .split("(")[0]
+                .trim();
+
+            const query = encodeURIComponent(`${limpio} ${ciudadBase}`);
+            return `https://www.google.com/maps/search/?api=1&query=${query}`;
+        }
+
+        // 1. Renderiza los nodos interactivos de ruta_general en el Hero
+        function renderizarHeroRuta() {
+            const container = document.getElementById("hero-route-pills");
+            container.innerHTML = "";
+
+            const mapeoRegion = {
+                "Tokio": "tokio",
+                "Monte Fuji / Kawaguchiko": "fuji",
+                "Hakone": "fuji",
+                "Nagoya (Ghibli Park)": "nagoya",
+                "Kioto": "kioto",
+                "Nara": "kioto",
+                "Osaka": "osaka",
+                "Tokio o Fukuoka (cierre)": "cierre"
+            };
+
+            ITINERARIO_JAPON.ruta_general.forEach((parada, idx) => {
+                const btn = document.createElement("button");
+                const regId = mapeoRegion[parada] || "todos";
+                btn.className = "px-2.5 py-1 bg-washi hover:bg-sumi hover:text-washi text-sumi border-2 border-sumi font-serifJp font-bold text-xs transition shadow-[2px_2px_0px_#141414]";
+                btn.textContent = parada;
+                btn.addEventListener("click", () => {
+                    activarVistaItinerario();
+                    estadoApp.regionActiva = regId;
+                    estadoApp.diaUnicoActivo = null;
+                    renderizarFiltrosRegion();
+                    renderizarSelector18Dias();
+                    renderizarDias();
+                    document.getElementById("days-container").scrollIntoView({ behavior: "smooth", block: "start" });
                 });
-            });
-        }
 
-        function renderizarFiltrosDia() {
-            const nav = document.getElementById("day-filters");
-            nav.innerHTML = "";
+                container.appendChild(btn);
 
-            nav.appendChild(crearBotonFiltro("todos", "Todos los días"));
-
-            ITINERARIO_JAPON.forEach(d => {
-                const etiqueta = d.ciudadCorta ? `Día ${d.dia} · ${d.ciudadCorta}` : `Día ${d.dia}`;
-                nav.appendChild(crearBotonFiltro(d.dia, etiqueta));
-            });
-        }
-
-        function crearBotonFiltro(valor, etiqueta) {
-            const btn = document.createElement("button");
-            const activo = diaSeleccionado === valor && !vistaSoloGaleria;
-
-            btn.textContent = etiqueta;
-            btn.className = activo
-                ? "whitespace-nowrap px-3.5 py-1.5 bg-vermilion text-washi border-2 border-sumi shadow-[2px_2px_0px_#141414] font-serifJp font-bold text-xs transition"
-                : "whitespace-nowrap px-3.5 py-1.5 bg-washi text-sumi hover:bg-washiDark border-2 border-sumi font-serifJp font-bold text-xs transition";
-
-            btn.addEventListener("click", () => {
-                if (vistaSoloGaleria) {
-                    vistaSoloGaleria = false;
-                    document.getElementById("gallery-container").classList.add("hidden");
-                    document.getElementById("itinerary-container").classList.remove("hidden");
-                    document.getElementById("btn-gallery-label").textContent = "Solo Galería";
+                if (idx < ITINERARIO_JAPON.ruta_general.length - 1) {
+                    const arrow = document.createElement("span");
+                    arrow.className = "font-mono font-bold text-vermilion text-xs select-none";
+                    arrow.textContent = "→";
+                    container.appendChild(arrow);
                 }
-                diaSeleccionado = valor;
-                renderizarFiltrosDia();
-                renderizarItinerario();
             });
-
-            return btn;
         }
 
-        function renderizarItinerario() {
-            const contenedor = document.getElementById("itinerary-container");
-            const viewTitle = document.getElementById("view-title");
-            const viewCounter = document.getElementById("view-counter");
+        // 2. Renderiza filtros de región en la barra sticky
+        function renderizarFiltrosRegion() {
+            const container = document.getElementById("region-filters");
+            container.innerHTML = "";
 
-            contenedor.innerHTML = "";
+            REGIONES.forEach(reg => {
+                const activo = !estadoApp.modoGaleria && estadoApp.diaUnicoActivo === null && estadoApp.regionActiva === reg.id;
+                const btn = document.createElement("button");
+                btn.textContent = reg.label;
+                btn.className = activo
+                    ? "whitespace-nowrap px-3 py-1.5 bg-sumi text-washi border-2 border-sumi shadow-[2px_2px_0px_#B81D24] font-serifJp font-bold text-xs transition"
+                    : "whitespace-nowrap px-3 py-1.5 bg-washi text-sumi hover:bg-washiDark border-2 border-sumi font-serifJp font-bold text-xs transition";
 
-            const diasFiltrados = diaSeleccionado === "todos"
-                ? ITINERARIO_JAPON
-                : ITINERARIO_JAPON.filter(d => d.dia === diaSeleccionado);
+                btn.addEventListener("click", () => {
+                    activarVistaItinerario();
+                    estadoApp.regionActiva = reg.id;
+                    estadoApp.diaUnicoActivo = null;
+                    renderizarFiltrosRegion();
+                    renderizarSelector18Dias();
+                    renderizarDias();
+                });
 
-            viewTitle.textContent = diaSeleccionado === "todos"
-                ? "Itinerario Completo"
-                : `Día ${diasFiltrados[0].dia} · ${diasFiltrados[0].ciudad}`;
+                container.appendChild(btn);
+            });
+        }
 
-            let totalActividades = 0;
+        // 3. Renderiza la cinta horizontal de los 18 días con fecha y día de la semana
+        function renderizarSelector18Dias() {
+            const strip = document.getElementById("day-selector-strip");
+            strip.innerHTML = "";
 
-            diasFiltrados.forEach(diaObj => {
-                totalActividades += diaObj.actividades.length;
+            ITINERARIO_JAPON.dias.forEach(d => {
+                const seleccionado = !estadoApp.modoGaleria && estadoApp.diaUnicoActivo === d.dia;
+                const diaSemCorto = d.dia_semana.slice(0, 3);
+                const fechaCorta = formatearFechaCorta(d.fecha);
 
-                const card = document.createElement("article");
-                card.className = "relative bg-washi p-5 sm:p-7 ukiyo-frame animate-ink";
+                const btn = document.createElement("button");
+                btn.className = seleccionado
+                    ? "shrink-0 px-2.5 py-1 bg-vermilion text-washi border-2 border-sumi shadow-[2px_2px_0px_#141414] text-left transition"
+                    : "shrink-0 px-2.5 py-1 bg-washi hover:bg-washiDark text-sumi border border-sumi text-left transition";
+
+                btn.innerHTML = `
+                    <div class="flex items-center justify-between gap-2">
+                        <span class="font-serifJp font-extrabold text-xs">D${String(d.dia).padStart(2, '0')}</span>
+                        <span class="font-mono text-[10px] ${seleccionado ? 'text-washi/90' : 'text-stoneInk'}">${diaSemCorto}</span>
+                    </div>
+                    <div class="font-mono text-[10px] font-bold ${seleccionado ? 'text-washi' : 'text-vermilion'}">${fechaCorta}</div>
+                `;
+
+                btn.addEventListener("click", () => {
+                    activarVistaItinerario();
+                    if (estadoApp.diaUnicoActivo === d.dia) {
+                        estadoApp.diaUnicoActivo = null;
+                    } else {
+                        estadoApp.diaUnicoActivo = d.dia;
+                    }
+                    renderizarFiltrosRegion();
+                    renderizarSelector18Dias();
+                    renderizarDias();
+                });
+
+                strip.appendChild(btn);
+            });
+        }
+
+        // 4. Renderiza las tarjetas de cada día
+        function renderizarDias() {
+            const container = document.getElementById("days-container");
+            const heading = document.getElementById("section-heading");
+            const badge = document.getElementById("section-badge");
+            container.innerHTML = "";
+
+            let diasFiltrados = [];
+
+            if (estadoApp.diaUnicoActivo !== null) {
+                diasFiltrados = ITINERARIO_JAPON.dias.filter(d => d.dia === estadoApp.diaUnicoActivo);
+                const d = diasFiltrados[0];
+                heading.textContent = `Día ${d.dia} · ${d.ciudad_zona}`;
+                badge.textContent = `${d.dia_semana} ${d.fecha}`;
+            } else {
+                const regObj = REGIONES.find(r => r.id === estadoApp.regionActiva) || REGIONES[0];
+                diasFiltrados = ITINERARIO_JAPON.dias.filter(regObj.match);
+                heading.textContent = regObj.id === "todos"
+                    ? "Itinerario Completo (Días 1 — 18)"
+                    : `Región: ${regObj.label}`;
+                badge.textContent = `${diasFiltrados.length} ${diasFiltrados.length === 1 ? 'jornada' : 'jornadas'}`;
+            }
+
+            diasFiltrados.forEach(d => {
+                const kanji = KANJI_NUMEROS[d.dia - 1] || d.dia;
+                const imgSrc = estadoApp.fotosPersonalizadasDia[d.dia] || d.imagen;
+                const pieFoto = d.pie_foto || `Día ${d.dia} — ${d.ciudad_zona}`;
+
+                const article = document.createElement("article");
+                article.className = "bg-washi p-5 sm:p-7 ukiyo-card animate-brush";
 
                 let html = `
                     <!-- Cabecera del Día con Sello Hanko Rojo -->
-                    <div class="flex items-start gap-4 pb-5 border-b-2 border-sumi">
-                        <div class="w-14 h-14 shrink-0 hanko-seal bg-washi flex flex-col items-center justify-center select-none">
-                            <span class="font-serifJp font-black text-xl leading-none">${diaObj.kanjiDia || diaObj.dia}</span>
-                            <span class="text-[9px] font-bold uppercase tracking-widest mt-1">DÍA ${diaObj.dia}</span>
-                        </div>
-
-                        <div>
-                            <div class="flex flex-wrap items-center gap-2 text-xs font-bold uppercase tracking-wider text-vermilion">
-                                <span>${diaObj.fecha}</span>
-                                <span class="text-sumi/40">•</span>
-                                <span class="text-sumi">${diaObj.ciudad}</span>
+                    <div class="flex items-start justify-between gap-4 pb-5 border-b-2 border-sumi">
+                        <div class="flex items-start gap-3.5 sm:gap-4">
+                            <div class="w-14 h-14 sm:w-16 sm:h-16 shrink-0 hanko-stamp bg-washi flex flex-col items-center justify-center select-none">
+                                <span class="font-serifJp font-extrabold text-lg sm:text-xl leading-none">${kanji}</span>
+                                <span class="font-mono font-bold text-[10px] uppercase tracking-wider mt-1">DÍA ${String(d.dia).padStart(2, '0')}</span>
                             </div>
-                            <h3 class="font-serifJp font-extrabold text-xl sm:text-2xl text-sumi mt-1 leading-snug">
-                                ${diaObj.tituloDia}
-                            </h3>
+
+                            <div>
+                                <div class="flex flex-wrap items-center gap-2 font-mono text-xs font-bold">
+                                    <span class="px-2 py-0.5 bg-sumi text-washi">${d.dia_semana} · ${d.fecha}</span>
+                                    <span class="text-vermilion uppercase tracking-wide">${d.ciudad_zona}</span>
+                                </div>
+                                <h3 class="font-serifJp font-extrabold text-xl sm:text-2xl text-sumi mt-1.5 leading-snug">
+                                    ${d.enfoque}
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fotografía Principal enmarcada con tinta negra + botón cambiar foto local -->
+                    <div class="my-6">
+                        <div class="bg-washiDark p-2 sm:p-2.5 ukiyo-box">
+                            <div class="aspect-[16/9] sm:aspect-[21/9] overflow-hidden border border-sumi bg-sumi cursor-pointer group relative"
+                                 onclick="abrirLightbox('${imgSrc.replace(/'/g, "\\'")}', '${pieFoto.replace(/'/g, "\\'")}', 'DÍA ${String(d.dia).padStart(2, '0')} • ${d.fecha}')">
+                                <img src="${imgSrc}" alt="${pieFoto}"
+                                     class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                                     loading="lazy"
+                                     onerror="this.src='https://placehold.co/1000x450/E7DEC8/141414?text=Japon+2027+-+Dia+${d.dia}'">
+                                <div class="absolute bottom-2.5 right-2.5 px-2.5 py-1 bg-sumi/85 text-washi font-mono text-[11px] border border-washi/40 opacity-90 group-hover:bg-vermilion transition">
+                                    🔍 Ampliar lámina
+                                </div>
+                            </div>
+
+                            <div class="pt-2.5 px-1 flex flex-wrap items-center justify-between gap-2">
+                                <p class="font-serifJp font-bold text-xs sm:text-sm text-sumi">
+                                    ${pieFoto}
+                                </p>
+
+                                <label class="cursor-pointer inline-flex items-center gap-1 px-2.5 py-1 bg-washi hover:bg-sumi hover:text-washi text-sumi border border-sumi font-mono text-[11px] font-bold transition">
+                                    <span>📷 Cambiar foto</span>
+                                    <input type="file" accept="image/*" class="hidden" onchange="cambiarFotoDia(${d.dia}, this)">
+                                </label>
+                            </div>
                         </div>
                     </div>
                 `;
 
-                // Fotografía Principal del Día enmarcada como lámina artística
-                if (diaObj.fotoPrincipal) {
+                // Renderizado normal de actividades OR bifurcación Opciones A / B (Días 17 y 18)
+                if (d.actividades && Array.isArray(d.actividades)) {
                     html += `
-                        <div class="my-6">
-                            <div class="group cursor-pointer bg-washiDark p-2 sm:p-2.5 ukiyo-frame-sm"
-                                 onclick="abrirLightbox('${diaObj.fotoPrincipal}', '${(diaObj.pieFoto || diaObj.tituloDia).replace(/'/g, "\\'")}')">
-                                <div class="aspect-[16/9] overflow-hidden border border-sumi bg-sumi">
-                                    <img src="${diaObj.fotoPrincipal}" alt="${diaObj.tituloDia}" 
-                                         class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                                         loading="lazy"
-                                         onerror="this.src='https://placehold.co/900x500/E6DEC8/141414?text=Lamina+Dia+${diaObj.dia}'">
-                                </div>
-                                <div class="pt-2.5 px-1 flex items-center justify-between gap-2">
-                                    <p class="font-serifJp font-bold text-xs sm:text-sm text-sumi truncate">
-                                        ${diaObj.pieFoto || diaObj.tituloDia}
-                                    </p>
-                                    <span class="text-[11px] font-bold text-vermilion shrink-0 group-hover:underline">
-                                        Ampliar 🔍
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="font-serifJp font-bold text-xs uppercase tracking-widest text-stoneInk">
+                                    Itinerario de Actividades (${d.actividades.length})
+                                </span>
+                            </div>
+                            <ol class="space-y-2.5">
+                    `;
+
+                    d.actividades.forEach((act, idx) => {
+                        const mapsLink = construirUrlGoogleMaps(act, d.ciudad_zona);
+                        html += `
+                            <li class="p-3.5 bg-washiDark/45 hover:bg-washiDark/80 border-2 border-sumi flex flex-col sm:flex-row sm:items-center justify-between gap-3 transition">
+                                <div class="flex items-start gap-3">
+                                    <span class="w-6 h-6 shrink-0 bg-vermilion text-washi font-mono font-bold text-xs flex items-center justify-center border border-sumi mt-0.5">
+                                        ${idx + 1}
+                                    </span>
+                                    <span class="text-sm sm:text-[15px] text-sumi font-medium leading-relaxed">
+                                        ${act}
                                     </span>
                                 </div>
+
+                                <a href="${mapsLink}" target="_blank" rel="noopener noreferrer"
+                                   class="shrink-0 self-end sm:self-center inline-flex items-center gap-1.5 px-3 py-1.5 bg-washi hover:bg-vermilion text-sumi hover:text-washi border-2 border-sumi shadow-[2px_2px_0px_#141414] font-serifJp font-bold text-xs transition">
+                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                    </svg>
+                                    <span>Maps</span>
+                                </a>
+                            </li>
+                        `;
+                    });
+
+                    html += `</ol></div>`;
+                } else if (d.opciones) {
+                    // Renderizado bifurcado elegante para Días 17 y 18 (Opción A: Tokio vs Opción B: Fukuoka)
+                    const opA = d.opciones.opcion_A_tokio;
+                    const opB = d.opciones.opcion_B_fukuoka;
+                    const mostrarA = estadoApp.opcionCierre === "ambas" || estadoApp.opcionCierre === "A";
+                    const mostrarB = estadoApp.opcionCierre === "ambas" || estadoApp.opcionCierre === "B";
+                    const gridCols = (mostrarA && mostrarB) ? "grid-cols-1 md:grid-cols-2" : "grid-cols-1";
+
+                    html += `
+                        <div class="space-y-3">
+                            <div class="flex flex-wrap items-center justify-between gap-2">
+                                <span class="font-serifJp font-bold text-xs uppercase tracking-widest text-vermilion">
+                                    ❖ Bifurcación de Ruta Internacional
+                                </span>
+                                <span class="font-mono text-[11px] text-stoneInk">Selecciona tu ciudad de salida arriba</span>
+                            </div>
+
+                            <div class="grid ${gridCols} gap-4">
+                    `;
+
+                    if (mostrarA && opA) {
+                        html += renderizarColumnaOpcion("OPCIÓN A", opA.ciudad, opA.actividades, "bg-sumi text-washi", "border-sumi");
+                    }
+                    if (mostrarB && opB) {
+                        html += renderizarColumnaOpcion("OPCIÓN B", opB.ciudad, opB.actividades, "bg-vermilion text-washi", "border-vermilion");
+                    }
+
+                    html += `</div></div>`;
+                }
+
+                // Bloque diferenciado de Transporte y Logística
+                if (d.transporte_logistica) {
+                    html += `
+                        <div class="mt-5 p-3.5 sm:p-4 bg-washiDark border-l-4 border-antiqueGold border-t border-r border-b border-sumi/30 flex items-start gap-3">
+                            <span class="text-lg shrink-0" aria-hidden="true">🚄</span>
+                            <div>
+                                <span class="block font-mono font-bold text-[11px] uppercase tracking-wider text-antiqueGold">
+                                    TRANSPORTE Y LOGÍSTICA
+                                </span>
+                                <p class="text-xs sm:text-sm text-sumi font-medium mt-0.5 leading-relaxed">
+                                    ${d.transporte_logistica}
+                                </p>
                             </div>
                         </div>
                     `;
                 }
 
-                // Línea de tiempo vertical con trazo de tinta
-                html += `<div class="mt-6 space-y-5 relative before:absolute before:inset-y-2 before:left-2.5 before:w-0.5 before:bg-sumi">`;
-
-                diaObj.actividades.forEach(act => {
-                    html += `
-                        <div class="relative pl-8">
-                            <!-- Punto de tinta y bermellón -->
-                            <div class="absolute left-1 top-2 w-3.5 h-3.5 rounded-full bg-vermilion border-2 border-sumi"></div>
-
-                            <div class="bg-washiDark/45 border-2 border-sumi p-4 hover:bg-washiDark/80 transition">
-                                <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5">
-                                    <div class="flex items-center gap-2">
-                                        <span class="px-2 py-0.5 bg-sumi text-washi font-serifJp font-bold text-xs">
-                                            ${act.hora}
-                                        </span>
-                                        <span class="px-2 py-0.5 bg-washi border border-sumi text-vermilion font-bold text-[11px] uppercase tracking-wider">
-                                            ${act.categoria}
-                                        </span>
-                                    </div>
-                                    <span class="text-xs font-semibold text-stoneGray">📍 ${act.lugar}</span>
-                                </div>
-
-                                <h4 class="font-serifJp font-extrabold text-lg text-sumi">
-                                    ${act.titulo}
-                                </h4>
-
-                                <p class="text-sm text-sumiSoft mt-1 leading-relaxed">
-                                    ${act.descripcion}
-                                </p>
-
-                                ${act.imagen ? `
-                                    <div class="mt-3.5">
-                                        <div class="inline-block max-w-xs bg-washi p-1.5 border-2 border-sumi cursor-pointer group"
-                                             onclick="abrirLightbox('${act.imagen}', '${act.titulo.replace(/'/g, "\\'")}')">
-                                            <img src="${act.imagen}" alt="${act.titulo}" class="h-36 w-full object-cover border border-sumi group-hover:opacity-90 transition" loading="lazy" onerror="this.parentElement.style.display='none'">
-                                            <span class="block text-[11px] font-bold text-center text-sumi mt-1">Ver fotografía</span>
-                                        </div>
-                                    </div>
-                                ` : ''}
-
-                                ${act.mapsUrl ? `
-                                    <div class="mt-4 pt-3 border-t border-sumi/20 flex justify-end">
-                                        <a href="${act.mapsUrl}" target="_blank" rel="noopener noreferrer"
-                                           class="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2 bg-washi hover:bg-vermilion text-sumi hover:text-washi border-2 border-sumi shadow-[2px_2px_0px_#141414] font-serifJp font-bold text-xs transition">
-                                            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
-                                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                                            </svg>
-                                            <span>Ver en Google Maps</span>
-                                        </a>
-                                    </div>
-                                ` : ''}
-                            </div>
-                        </div>
-                    `;
-                });
-
-                html += `</div>`;
-                card.innerHTML = html;
-                contenedor.appendChild(card);
+                article.innerHTML = html;
+                container.appendChild(article);
             });
-
-            viewCounter.textContent = `${totalActividades} ${totalActividades === 1 ? 'actividad' : 'actividades'}`;
         }
 
+        function renderizarColumnaOpcion(etiqueta, ciudad, actividades, headerClass, borderAccent) {
+            let itemsHtml = actividades.map((act, i) => {
+                const mapsLink = construirUrlGoogleMaps(act, ciudad);
+                return `
+                    <li class="p-3 bg-washi border border-sumi flex flex-col gap-2">
+                        <div class="flex items-start gap-2.5">
+                            <span class="w-5 h-5 shrink-0 bg-sumi text-washi font-mono font-bold text-[11px] flex items-center justify-center mt-0.5">
+                                ${i + 1}
+                            </span>
+                            <span class="text-xs sm:text-sm text-sumi font-medium leading-relaxed">${act}</span>
+                        </div>
+                        <div class="flex justify-end">
+                            <a href="${mapsLink}" target="_blank" rel="noopener noreferrer"
+                               class="inline-flex items-center gap-1 px-2.5 py-1 bg-washiDark hover:bg-vermilion text-sumi hover:text-washi border border-sumi font-serifJp font-bold text-[11px] transition">
+                                📍 Ver en Maps
+                            </a>
+                        </div>
+                    </li>
+                `;
+            }).join("");
+
+            return `
+                <div class="bg-washiDark/50 border-2 ${borderAccent} p-4 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between pb-2.5 mb-3 border-b-2 border-sumi">
+                            <span class="px-2 py-0.5 font-mono font-bold text-xs ${headerClass}">${etiqueta}</span>
+                            <span class="font-serifJp font-extrabold text-base sm:text-lg text-sumi">Salida: ${ciudad}</span>
+                        </div>
+                        <ol class="space-y-2.5">
+                            ${itemsHtml}
+                        </ol>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Cambiar fotografía individual de un día desde el dispositivo
+        function cambiarFotoDia(numDia, inputEl) {
+            const file = inputEl.files && inputEl.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                estadoApp.fotosPersonalizadasDia[numDia] = e.target.result;
+                guardarEstadoLocal();
+                renderizarDias();
+                renderizarGaleria();
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // 5. Renderiza Reservas Críticas (sincronizado entre Modal y Sección inferior)
+        function renderizarReservasCriticas() {
+            const modalList = document.getElementById("modal-reservations-list");
+            const sectionList = document.getElementById("section-reservations-list");
+            const navBadge = document.getElementById("nav-res-badge");
+            const sectionCounter = document.getElementById("section-res-counter");
+
+            const total = ITINERARIO_JAPON.reservas_criticas.length;
+            const completadas = ITINERARIO_JAPON.reservas_criticas.filter((_, i) => estadoApp.reservasCompletadas[i]).length;
+
+            navBadge.textContent = `${completadas}/${total}`;
+            sectionCounter.textContent = `${completadas} / ${total} Reservadas`;
+
+            modalList.innerHTML = "";
+            sectionList.innerHTML = "";
+
+            ITINERARIO_JAPON.reservas_criticas.forEach((res, idx) => {
+                const checked = !!estadoApp.reservasCompletadas[idx];
+
+                const crearTarjetaReserva = () => {
+                    const card = document.createElement("label");
+                    card.className = `block p-4 border-2 border-sumi cursor-pointer transition select-none ${
+                        checked ? "bg-washiDark/50 opacity-80" : "bg-washi hover:bg-washiDark/40 shadow-[3px_3px_0px_#141414]"
+                    }`;
+
+                    card.innerHTML = `
+                        <div class="flex items-start gap-3">
+                            <input type="checkbox" ${checked ? "checked" : ""} class="mt-1 w-4 h-4 accent-vermilion cursor-pointer">
+                            <div class="flex-1">
+                                <div class="flex flex-wrap items-center justify-between gap-2">
+                                    <h4 class="font-serifJp font-extrabold text-base text-sumi ${checked ? 'line-through text-stoneInk' : ''}">
+                                        ${res.atraccion}
+                                    </h4>
+                                    <span class="px-2 py-0.5 font-mono text-[10px] font-bold uppercase ${
+                                        checked ? "bg-sumi text-washi" : "bg-vermilion text-washi"
+                                    }">
+                                        ${checked ? "✓ RESERVADO" : "PENDIENTE"}
+                                    </span>
+                                </div>
+                                <div class="mt-1.5 inline-block px-2 py-0.5 bg-washiDark border border-sumi/40 font-mono text-[11px] font-bold text-antiqueGold">
+                                    ⏰ ${res.anticipacion}
+                                </div>
+                                <p class="text-xs sm:text-sm text-sumiSoft mt-2 leading-relaxed">
+                                    ${res.nota}
+                                </p>
+                            </div>
+                        </div>
+                    `;
+
+                    const cb = card.querySelector("input[type='checkbox']");
+                    cb.addEventListener("change", () => {
+                        estadoApp.reservasCompletadas[idx] = cb.checked;
+                        guardarEstadoLocal();
+                        renderizarReservasCriticas();
+                    });
+
+                    return card;
+                };
+
+                modalList.appendChild(crearTarjetaReserva());
+                sectionList.appendChild(crearTarjetaReserva());
+            });
+        }
+
+        // 6. Renderiza Galería de los 18 Días
         function renderizarGaleria() {
             const grid = document.getElementById("gallery-grid");
-            const viewCounter = document.getElementById("view-counter");
             grid.innerHTML = "";
 
-            const todasLasFotos = [...fotosSubidasLocales];
-
-            ITINERARIO_JAPON.forEach(d => {
-                if (d.fotoPrincipal) {
-                    todasLasFotos.push({
-                        url: d.fotoPrincipal,
-                        caption: `Día ${d.dia} · ${d.pieFoto || d.tituloDia}`
-                    });
-                }
-                d.actividades.forEach(act => {
-                    if (act.imagen) {
-                        todasLasFotos.push({
-                            url: act.imagen,
-                            caption: `Día ${d.dia} · ${act.titulo}`
-                        });
-                    }
-                });
-            });
-
-            viewCounter.textContent = `${todasLasFotos.length} fotografías`;
-
-            todasLasFotos.forEach(foto => {
+            // Primero fotos extra subidas por el usuario en la galería
+            estadoApp.fotosExtraGaleria.forEach((foto, idx) => {
                 const item = document.createElement("div");
-                item.className = "bg-washi p-2.5 ukiyo-frame-sm cursor-pointer group";
-                item.onclick = () => abrirLightbox(foto.url, foto.caption);
+                item.className = "bg-washi p-2.5 ukiyo-box cursor-pointer group";
+                item.onclick = () => abrirLightbox(foto.url, foto.caption, "FOTO PERSONAL");
 
                 item.innerHTML = `
-                    <div class="aspect-[16/10] overflow-hidden border border-sumi bg-sumi">
-                        <img src="${foto.url}" alt="${foto.caption}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
+                    <div class="aspect-[16/10] overflow-hidden border border-sumi bg-sumi relative">
+                        <img src="${foto.url}" alt="${foto.caption}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-2 left-2 px-2 py-0.5 bg-antiqueGold text-washi font-mono font-bold text-[10px] border border-sumi">
+                            PERSONAL
+                        </span>
                     </div>
                     <p class="font-serifJp font-bold text-xs sm:text-sm text-sumi mt-2.5 px-1 truncate">
                         ${foto.caption}
@@ -857,79 +1332,122 @@
                 `;
                 grid.appendChild(item);
             });
+
+            // Luego las láminas de los 18 días
+            ITINERARIO_JAPON.dias.forEach(d => {
+                const imgSrc = estadoApp.fotosPersonalizadasDia[d.dia] || d.imagen;
+                const caption = d.pie_foto || `Día ${d.dia} — ${d.ciudad_zona}`;
+
+                const item = document.createElement("div");
+                item.className = "bg-washi p-2.5 ukiyo-box cursor-pointer group";
+                item.onclick = () => abrirLightbox(imgSrc, caption, `DÍA ${String(d.dia).padStart(2, '0')} • ${d.fecha}`);
+
+                item.innerHTML = `
+                    <div class="aspect-[16/10] overflow-hidden border border-sumi bg-sumi relative">
+                        <img src="${imgSrc}" alt="${caption}"
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                             loading="lazy"
+                             onerror="this.src='https://placehold.co/800x500/E7DEC8/141414?text=Dia+${d.dia}'">
+                        <span class="absolute top-2 left-2 px-2 py-0.5 bg-vermilion text-washi font-mono font-bold text-[10px] border border-sumi">
+                            DÍA ${String(d.dia).padStart(2, '0')} • ${formatearFechaCorta(d.fecha)}
+                        </span>
+                    </div>
+                    <div class="pt-2.5 px-1">
+                        <span class="block font-mono text-[10px] font-bold uppercase text-stoneInk truncate">${d.ciudad_zona}</span>
+                        <p class="font-serifJp font-bold text-xs sm:text-sm text-sumi truncate mt-0.5">${caption}</p>
+                    </div>
+                `;
+                grid.appendChild(item);
+            });
+        }
+
+        // Control de cambio entre Vista Itinerario y Vista Galería
+        function activarVistaItinerario() {
+            estadoApp.modoGaleria = false;
+            document.getElementById("gallery-view").classList.add("hidden");
+            document.getElementById("days-container").classList.remove("hidden");
+            document.getElementById("critical-reservations-section").classList.remove("hidden");
+            document.getElementById("closure-route-bar").classList.remove("hidden");
+            document.getElementById("btn-gallery-text").textContent = "Galería 18 Días";
+        }
+
+        function inicializarEventosUI() {
+            // Botón alternar Galería
+            document.getElementById("btn-toggle-gallery").addEventListener("click", () => {
+                estadoApp.modoGaleria = !estadoApp.modoGaleria;
+                if (estadoApp.modoGaleria) {
+                    document.getElementById("days-container").classList.add("hidden");
+                    document.getElementById("critical-reservations-section").classList.add("hidden");
+                    document.getElementById("closure-route-bar").classList.add("hidden");
+                    document.getElementById("gallery-view").classList.remove("hidden");
+                    document.getElementById("btn-gallery-text").textContent = "Ver Itinerario";
+                    document.getElementById("section-heading").textContent = "Galería de los 18 Días";
+                    document.getElementById("section-badge").textContent = `${18 + estadoApp.fotosExtraGaleria.length} láminas`;
+                    renderizarFiltrosRegion();
+                    renderizarSelector18Dias();
+                    renderizarGaleria();
+                } else {
+                    activarVistaItinerario();
+                    renderizarFiltrosRegion();
+                    renderizarSelector18Dias();
+                    renderizarDias();
+                }
+            });
+
+            // Selector global de cierre D17-D18 (Ambas / Opción A Tokio / Opción B Fukuoka)
+            document.querySelectorAll(".closure-btn").forEach(btn => {
+                btn.addEventListener("click", () => {
+                    estadoApp.opcionCierre = btn.dataset.closure;
+                    document.querySelectorAll(".closure-btn").forEach(b => {
+                        b.className = b.dataset.closure === estadoApp.opcionCierre
+                            ? "closure-btn px-2 py-1 font-serifJp font-bold text-xs bg-sumi text-washi transition"
+                            : "closure-btn px-2 py-1 font-serifJp font-bold text-xs text-sumi hover:bg-washi transition";
+                    });
+                    renderizarDias();
+                });
+            });
+
+            // Subida múltiple en Galería
+            document.getElementById("gallery-upload-input").addEventListener("change", (e) => {
+                const files = Array.from(e.target.files || []);
+                files.forEach(file => {
+                    const reader = new FileReader();
+                    reader.onload = (ev) => {
+                        estadoApp.fotosExtraGaleria.unshift({
+                            url: ev.target.result,
+                            caption: file.name.replace(/\.[^/.]+$/, "")
+                        });
+                        guardarEstadoLocal();
+                        renderizarGaleria();
+                        document.getElementById("section-badge").textContent = `${18 + estadoApp.fotosExtraGaleria.length} láminas`;
+                    };
+                    reader.readAsDataURL(file);
+                });
+            });
+
+            // Modal Reservas Críticas
+            const resModal = document.getElementById("reservations-modal");
+            document.getElementById("btn-open-reservations").addEventListener("click", () => {
+                resModal.classList.remove("hidden");
+            });
+            document.getElementById("btn-close-reservations").addEventListener("click", () => {
+                resModal.classList.add("hidden");
+            });
+            resModal.addEventListener("click", (e) => {
+                if (e.target === resModal) resModal.classList.add("hidden");
+            });
         }
 
         // Lightbox
-        function abrirLightbox(url, caption) {
-            const modal = document.getElementById("lightbox-modal");
+        function abrirLightbox(url, caption, tag) {
             document.getElementById("lightbox-img").src = url;
             document.getElementById("lightbox-caption").textContent = caption || "";
-            modal.classList.remove("hidden");
+            document.getElementById("lightbox-tag").textContent = tag || "LÁMINA DE VIAJE";
+            document.getElementById("lightbox-modal").classList.remove("hidden");
         }
 
         function cerrarLightbox() {
             document.getElementById("lightbox-modal").classList.add("hidden");
-        }
-
-        // Modal Equipaje & Frases
-        function inicializarModalEquipaje() {
-            const modal = document.getElementById("checklist-modal");
-            const btnOpen = document.getElementById("btn-open-checklist");
-            const btnClose = document.getElementById("btn-close-checklist");
-            const listCont = document.getElementById("checklist-list");
-            const phrasesCont = document.getElementById("phrases-list");
-            const counter = document.getElementById("checklist-counter");
-
-            let estadoChecklist = {};
-            try {
-                estadoChecklist = JSON.parse(localStorage.getItem("ukiyo_japon_checklist")) || {};
-            } catch (e) {}
-
-            function actualizarProgreso() {
-                const completados = EQUIPAJE_CHECKLIST.filter((_, i) => estadoChecklist[i]).length;
-                counter.textContent = `${completados}/${EQUIPAJE_CHECKLIST.length}`;
-            }
-
-            EQUIPAJE_CHECKLIST.forEach((item, idx) => {
-                const label = document.createElement("label");
-                label.className = "flex items-center gap-3 p-3 bg-washiDark/40 border-2 border-sumi cursor-pointer hover:bg-washiDark transition select-none";
-
-                const cb = document.createElement("input");
-                cb.type = "checkbox";
-                cb.checked = !!estadoChecklist[idx];
-                cb.className = "w-4 h-4 accent-vermilion";
-
-                const span = document.createElement("span");
-                span.textContent = item;
-                span.className = cb.checked ? "text-xs sm:text-sm line-through text-stoneGray" : "text-xs sm:text-sm text-sumi font-semibold";
-
-                cb.addEventListener("change", () => {
-                    estadoChecklist[idx] = cb.checked;
-                    try { localStorage.setItem("ukiyo_japon_checklist", JSON.stringify(estadoChecklist)); } catch (e) {}
-                    span.className = cb.checked ? "text-xs sm:text-sm line-through text-stoneGray" : "text-xs sm:text-sm text-sumi font-semibold";
-                    actualizarProgreso();
-                });
-
-                label.appendChild(cb);
-                label.appendChild(span);
-                listCont.appendChild(label);
-            });
-
-            actualizarProgreso();
-
-            FRASES_JAPONES.forEach(f => {
-                const row = document.createElement("div");
-                row.className = "p-2.5 bg-washi border-l-4 border-vermilion";
-                row.innerHTML = `
-                    <div class="font-serifJp font-bold text-sm text-sumi">${f.jp}</div>
-                    <div class="text-xs text-sumiSoft mt-0.5">${f.es}</div>
-                `;
-                phrasesCont.appendChild(row);
-            });
-
-            btnOpen.addEventListener("click", () => modal.classList.remove("hidden"));
-            btnClose.addEventListener("click", () => modal.classList.add("hidden"));
-            modal.addEventListener("click", (e) => { if (e.target === modal) modal.classList.add("hidden"); });
         }
     </script>
 </body>
